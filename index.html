@@ -46,6 +46,7 @@
             flex-direction: column;
             cursor: pointer;
             transition: transform 0.3s ease-in-out;
+            margin-right: 20px;
         }
 
         .burger div {
@@ -96,11 +97,12 @@
         .slides {
             display: flex;
             transition: transform 0.5s ease-in-out;
+            height: 300px;
         }
 
         .slide {
             min-width: 100%;
-            padding: 4rem 2rem;
+            padding: 5rem 2rem;
             color: white;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             background-size: cover;
@@ -514,14 +516,14 @@
         <h2>Contacto</h2>
 
         <div>
-            <iframe src="https://www.google.com/maps?q=Calle+Ejemplo+123,+Sevilla&output=embed" width="100%"
+            <iframe src="https://www.google.com/maps?q=Calle+Charco+1,+Los Palacios y Villafranca, Sevilla&output=embed" width="100%"
                 height="300" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade">
             </iframe>
         </div>
 
-        <p>📍 <strong>Visítanos:</strong> Calle Ejemplo, 123, Sevilla</p>
-        <p>📲 <strong>Llámanos:</strong> <a href="tel:+34950123456">950 123 456</a> ¡También puedes hablarnos por
+        <br/><p>📍 <strong>Visítanos:</strong> Calle Charco 1, Los Palacios y Villafranca, Sevilla</p>
+        <p>📲 <strong>Llámanos:</strong> <a href="tel:+34611023363">611 023 363</a> ¡También puedes hablarnos por
             WhatsApp!
         <p>✉️ <strong>Email:</strong> <a href="mailto:info@comproorosevilla.com">info@comproorosevilla.com</a></p>
     </section>
@@ -539,6 +541,43 @@
     const slides = document.getElementById('slides');
     const totalSlides = slides.children.length;
     const dotsContainer = document.getElementById('dots');
+    let currentIndex = 0;
+
+    let startX = 0;
+    let endX = 0;
+
+    slides.addEventListener('touchstart', e => {
+        startX = e.touches[0].clientX;
+    });
+
+    slides.addEventListener('touchmove', e => {
+        endX = e.touches[0].clientX;
+    });
+
+    slides.addEventListener('touchend', () => {
+        const diffX = startX - endX;
+
+        if (Math.abs(diffX) > 50) {
+            if (diffX > 0) {
+                currentIndex = (currentIndex + 1) % totalSlides;
+            } else {
+                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            }
+            updateSlide();
+        }
+    });
+
+    function updateSlide() {
+        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        updateDots();
+    }
+
+    function updateDots() {
+        const dots = document.querySelectorAll('#dots button');
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIndex);
+        });
+    }
 
     function updateSlide(index) {
         currentSlide = index;
@@ -555,9 +594,24 @@
     }
     updateSlide(0);
 
-    function toggleMenu() {
-        document.getElementById('menu').classList.toggle('active');
+     function toggleMenu() {
+        const menu = document.getElementById('menu');
+        menu.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
     }
+
+    document.addEventListener('click', function (event) {
+        const menu = document.getElementById('menu');
+        const burger = document.querySelector('.burger');
+
+        const isClickInsideMenu = menu.contains(event.target);
+        const isClickOnBurger = burger.contains(event.target);
+
+        if (!isClickInsideMenu && !isClickOnBurger && menu.classList.contains('active')) {
+            menu.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        }
+    });
 </script>
 </body>
 
