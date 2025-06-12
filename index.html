@@ -10,7 +10,7 @@
     <meta name="author" content="Compro Oro Sevilla">
     <title>Compro Oro Sevilla - Mejor Precio por tu Oro</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3309/3309977.png">
+    <link rel="icon" href="https://png.pngtree.com/element_our/png/20181114/gold-icon-png_239829.jpg">
     <style>
         * {
             margin: 0;
@@ -142,7 +142,8 @@
 
         main.container {
             padding: 2rem;
-            padding-top: 0;;
+            padding-top: 0;
+            ;
             max-width: 1000px;
             margin: auto;
         }
@@ -159,50 +160,63 @@
             padding: 0;
         }
 
-        #tarifas {
-            padding: 2rem 1rem;
-            padding-top: 0;
-            background: #fdfdfd;
+        .text-center {
             text-align: center;
         }
 
-        .tarifas {
+        .elemento-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
-        .tarifa {
-            background: #fff;
-            border: 2px solid #eee;
+        .elemento-item {
+            background: #f7f7f7;
+            border: 2px solid #e3e3e3;
+            border-radius: 16px;
             padding: 1.5rem;
-            border-radius: 18px;
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+            font-size: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .tarifa:hover {
+        .elemento-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
+            border-color: #ffd700;
+        }
+
+        .elemento-item p {
+            margin-top: 0.5rem;
+            color: #444;
+            font-size: 1rem;
+        }
+
+        .elemento-item:hover {
             transform: translateY(-8px);
             box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
             border-color: #ffd700;
         }
 
-        .tarifa h3 {
+        .elemento-item h3 {
             margin-bottom: 0.5rem;
             color: #444;
             font-size: 1.3rem;
         }
 
-        .tarifa .precio {
+        .elemento-item .precio {
             font-size: 1.4rem;
             color: #000;
             font-weight: bold;
             margin-bottom: 0.5rem;
         }
 
-        .tarifa .descripcion {
+        .elemento-item .descripcion {
             font-size: 0.95rem;
             color: #666;
             line-height: 1.4;
@@ -269,11 +283,6 @@
             text-decoration: underline;
         }
 
-        #proceso {
-            text-align: center;
-            padding: 2rem 1rem;
-        }
-
         .proceso-pasos {
             display: flex;
             flex-wrap: wrap;
@@ -286,8 +295,8 @@
             background: #fff;
             border: 2px solid #ddd;
             border-radius: 50%;
-            width: 150px;
-            height: 150px;
+            width: 175px;
+            height: 175px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -369,9 +378,9 @@
     </div>
     <nav id="menu">
         <a href="#tarifas">Tarifas</a>
-        <a href="#nosotros">Nosotros</a>
-        <a href="#servicios">Servicios</a>
         <a href="#proceso">Proceso</a>
+        <a href="#nosotros">Sobre nosotros</a>
+        <a href="#servicios">Servicios</a>
         <a href="#porque">¿Por qué elegirnos?</a>
         <a href="#opiniones">Opiniones</a>
         <a href="#contacto">Contacto</a>
@@ -383,12 +392,11 @@
     <div class="slides-wrapper">
         <div class="slides" id="slides">
             <div class="slide"
-                style="background-image: url('https://www.andorrano-joyeria.com//images/2021/01/19/compro-oro.jpg');">
+                style="background-image: url('https://oro-money.com/wp-content/uploads/2024/03/consejos-obtener-tasacion-vender-tu-oro-646.png');">
                 <h1>Oro 24K</h1>
                 <p>El mejor precio del mercado</p>
             </div>
-            <div class="slide"
-                style="background-image: url('https://www.andorrano-joyeria.com//images/2024/12/03/compro-oro-los-palacios-y-villafranca-andorrano.jpg');">
+            <div class="slide" style="background-image: url('https://www.comprooromadrid.com/images/slider/5.jpg');">
                 <h1>Joyas de oro</h1>
                 <p>Tasación profesional al instante</p>
             </div>
@@ -403,25 +411,25 @@
 </div>
 
 <main class="container">
-    <section id="tarifas">
+    <section id="tarifas" class="text-center">
         <h2>Tarifas</h2>
-        <div class="tarifas">
-            <div class="tarifa">
+        <div class="elemento-grid">
+            <div class="elemento-item">
                 <h3>💎 Oro 24K</h3>
                 <p class="precio">60€/g</p>
                 <p class="descripcion">Oro puro al 99,9%. Ideal para inversión y piezas de alto valor.</p>
             </div>
-            <div class="tarifa">
+            <div class="elemento-item">
                 <h3>🔶 Oro 18K</h3>
                 <p class="precio">45€/g</p>
                 <p class="descripcion">Aleación clásica en joyería con excelente durabilidad y brillo.</p>
             </div>
-            <div class="tarifa">
+            <div class="elemento-item">
                 <h3>🟡 Oro 14K</h3>
                 <p class="precio">35€/g</p>
                 <p class="descripcion">Buena opción para joyas cotidianas, resistente y más económica.</p>
             </div>
-            <div class="tarifa">
+            <div class="elemento-item">
                 <h3>🟠 Oro 9K</h3>
                 <p class="precio">25€/g</p>
                 <p class="descripcion">Opción asequible con contenido reducido de oro, ideal para uso casual.</p>
@@ -429,13 +437,7 @@
         </div>
     </section>
 
-    <section id="nosotros">
-        <h2>Nosotros</h2>
-        <p>Somos una empresa sevillana con más de 15 años de experiencia en la compra de oro. Nuestro compromiso es
-            ofrecerte transparencia, profesionalidad y los mejores precios del mercado.</p>
-    </section>
-
-    <section id="proceso">
+    <section id="proceso" class="text-center">
         <h2>Proceso</h2>
         <div class="proceso-pasos">
             <div class="paso">
@@ -460,61 +462,39 @@
         </div>
     </section>
 
-    <section id="servicios">
-        <h2>Servicios</h2>
-        <div class="elemento-grid">
-            <div class="elemento-item">💍<p>Compra de joyas de oro</p></div>
-            <div class="elemento-item">🏅<p>Compra de lingotes y monedas</p></div>
-            <div class="elemento-item">🆓<p>Asesoramiento gratuito</p></div>
-            <div class="elemento-item">🧠<p>Tasación profesional sin compromiso</p></div>
-        </ul>
+    <section id="nosotros">
+        <h2>Sobre nosotros</h2>
+        <p>Somos una empresa sevillana con más de 15 años de experiencia en la compra de oro. Nuestro compromiso es
+            ofrecerte transparencia, profesionalidad y los mejores precios del mercado.</p>
     </section>
 
-    <section id="porque">
+    <section id="servicios" class="text-center">
+        <h2>Servicios</h2>
+        <div class="elemento-grid">
+            <div class="elemento-item">💍<p>Compra de joyas de oro</p>
+            </div>
+            <div class="elemento-item">🏅<p>Compra de lingotes y monedas</p>
+            </div>
+            <div class="elemento-item">🆓<p>Asesoramiento gratuito</p>
+            </div>
+            <div class="elemento-item">🧠<p>Tasación profesional sin compromiso</p>
+            </div>
+            </ul>
+    </section>
+
+    <section id="porque" class="text-center">
         <h2>¿Por qué elegirnos?</h2>
         <div class="elemento-grid">
-          <div class="elemento-item">📊<p>Precios actualizados diariamente</p></div>
-          <div class="elemento-item">🙋<p>Atención personalizada</p></div>
-          <div class="elemento-item">🌟<p>Más de 1000 clientes satisfechos</p></div>
-          <div class="elemento-item">🔒<p>Privacidad y discreción total</p></div>
+            <div class="elemento-item">📊<p>Precios actualizados diariamente</p>
+            </div>
+            <div class="elemento-item">🙋<p>Atención personalizada</p>
+            </div>
+            <div class="elemento-item">🌟<p>Más de 1000 clientes satisfechos</p>
+            </div>
+            <div class="elemento-item">🔒<p>Privacidad y discreción total</p>
+            </div>
         </div>
-      </section>
-      
-      <style>
-        .elemento-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-          gap: 1.5rem;
-          max-width: 900px;
-          margin: 0 auto;
-        }
-      
-        .elemento-item {
-          background: #f7f7f7;
-          border: 2px solid #e3e3e3;
-          border-radius: 16px;
-          padding: 1.5rem;
-          box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
-          font-size: 1.2rem;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-      
-        .elemento-item:hover {
-          transform: translateY(-6px);
-          box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
-          border-color: #ffd700;
-        }
-      
-        .elemento-item p {
-          margin-top: 0.5rem;
-          color: #444;
-          font-size: 1rem;
-        }
-      </style>
-      
+    </section>
 
     <section id="opiniones" class="opiniones">
         <h2>Opiniones de nuestros clientes</h2>
@@ -530,15 +510,20 @@
         </div>
     </section>
 
-    <section id="contacto">
+    <section id="contacto" class="text-center">
         <h2>Contacto</h2>
-        <p>Visítanos en Calle Ejemplo, 123, Sevilla o contáctanos por:</p>
-        <ul>
-            <li>Teléfono: <a href="tel:+34950123456">950 123 456</a></li>
-            <li>Email: <a href="mailto:info@comproorosevilla.com">info@comproorosevilla.com</a></li>
-        </ul>
-        <a class="btn" href="https://api.whatsapp.com/send?phone=+34950123456" target="_blank">Escríbenos por
-            WhatsApp</a>
+
+        <div>
+            <iframe src="https://www.google.com/maps?q=Calle+Ejemplo+123,+Sevilla&output=embed" width="100%"
+                height="300" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+        <p>📍 <strong>Visítanos:</strong> Calle Ejemplo, 123, Sevilla</p>
+        <p>📲 <strong>Llámanos:</strong> <a href="tel:+34950123456">950 123 456</a> ¡También puedes hablarnos por
+            WhatsApp!
+        <p>✉️ <strong>Email:</strong> <a href="mailto:info@comproorosevilla.com">info@comproorosevilla.com</a></p>
     </section>
 </main>
 <a href="https://api.whatsapp.com/send?phone=+34950123456" class="whatsapp-float" target="_blank">
