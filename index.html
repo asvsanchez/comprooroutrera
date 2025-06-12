@@ -69,6 +69,7 @@
             transition: color 0.3s ease;
             padding: 0.5rem;
             border-radius: 4px;
+            min-width: fit-content;
         }
 
         nav a:hover {
@@ -108,6 +109,7 @@
             background-size: cover;
             background-position: center;
             text-align: center;
+            flex: 0 0 100%;
         }
 
         .slide h1 {
@@ -516,19 +518,20 @@
         <h2>Contacto</h2>
 
         <div>
-            <iframe src="https://www.google.com/maps?q=Calle+Charco+1,+Los Palacios y Villafranca, Sevilla&output=embed" width="100%"
-                height="300" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"
+            <iframe src="https://www.google.com/maps?q=Calle+Charco+1,+Los Palacios y Villafranca, Sevilla&output=embed"
+                width="100%" height="300" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade">
             </iframe>
         </div>
 
-        <br/><p>📍 <strong>Visítanos:</strong> Calle Charco 1, Los Palacios y Villafranca, Sevilla</p>
+        <br />
+        <p>📍 <strong>Visítanos:</strong> Calle Charco 1, Los Palacios y Villafranca, Sevilla</p>
         <p>📲 <strong>Llámanos:</strong> <a href="tel:+34611023363">611 023 363</a> ¡También puedes hablarnos por
             WhatsApp!
         <p>✉️ <strong>Email:</strong> <a href="mailto:info@comproorosevilla.com">info@comproorosevilla.com</a></p>
     </section>
 </main>
-<a href="https://api.whatsapp.com/send?phone=+34950123456" class="whatsapp-float" target="_blank">
+<a href="https://api.whatsapp.com/send?phone=+34611023363" class="whatsapp-float" target="_blank">
     <i class="fab fa-whatsapp"></i>
 </a>
 
@@ -537,7 +540,6 @@
 </footer>
 
 <script>
-    let currentSlide = 0;
     const slides = document.getElementById('slides');
     const totalSlides = slides.children.length;
     const dotsContainer = document.getElementById('dots');
@@ -567,7 +569,8 @@
         }
     });
 
-    function updateSlide() {
+    function updateSlide(index = currentIndex) {
+        currentIndex = index;
         slides.style.transform = `translateX(-${currentIndex * 100}%)`;
         updateDots();
     }
@@ -579,14 +582,6 @@
         });
     }
 
-    function updateSlide(index) {
-        currentSlide = index;
-        slides.style.transform = `translateX(-${index * 100}%)`;
-        document.querySelectorAll('.dots button').forEach((dot, i) => {
-            dot.classList.toggle('active', i === index);
-        });
-    }
-
     for (let i = 0; i < totalSlides; i++) {
         const btn = document.createElement('button');
         btn.onclick = () => updateSlide(i);
@@ -594,7 +589,7 @@
     }
     updateSlide(0);
 
-     function toggleMenu() {
+    function toggleMenu() {
         const menu = document.getElementById('menu');
         menu.classList.toggle('active');
         document.body.classList.toggle('menu-open');
