@@ -392,7 +392,6 @@
 </header>
 
 <div class="hero">
-    <!--div class="slogan">Te pagamos el mejor precio</div>-->
     <div class="slides-wrapper">
         <div class="slides" id="slides">
             <div class="slide"
@@ -420,23 +419,18 @@
         <div class="elemento-grid">
             <div class="elemento-item">
                 <h3>💎 Oro 24K</h3>
-                <p class="precio">60€/g</p>
+                <p id="precio24k" class="precio">- €/g</p>
                 <p class="descripcion">Oro puro al 99,9%. Ideal para inversión y piezas de alto valor.</p>
             </div>
             <div class="elemento-item">
                 <h3>🔶 Oro 18K</h3>
-                <p class="precio">45€/g</p>
+                <p id="precio18k" class="precio">- €/g</p>
                 <p class="descripcion">Aleación clásica en joyería con excelente durabilidad y brillo.</p>
             </div>
             <div class="elemento-item">
                 <h3>🟡 Oro 14K</h3>
-                <p class="precio">35€/g</p>
+                <p id="precio14k" class="precio">50 €/g</p>
                 <p class="descripcion">Buena opción para joyas cotidianas, resistente y más económica.</p>
-            </div>
-            <div class="elemento-item">
-                <h3>🟠 Oro 9K</h3>
-                <p class="precio">25€/g</p>
-                <p class="descripcion">Opción asequible con contenido reducido de oro, ideal para uso casual.</p>
             </div>
         </div>
     </section>
@@ -544,9 +538,25 @@
     const totalSlides = slides.children.length;
     const dotsContainer = document.getElementById('dots');
     let currentIndex = 0;
-
     let startX = 0;
     let endX = 0;
+    let autoSlideInterval;
+
+    fetch('https://api.allorigins.win/raw?url=https://www.joyeriachaves.es/oro/')
+        .then(res => res.text())
+        .then(html => {
+            const div = document.createElement('div');
+            div.innerHTML = html;
+            const text = div.textContent;
+            const matches = [...text.matchAll(/(\d+,\d+)\s*€\/g/g)];
+            if (matches.length >= 3) {
+                const precio24k = matches[0][1].replace(',', '.');
+                const precio18k = matches[2][1].replace(',', '.');
+                document.getElementById('precio24k').textContent = precio24k + ' €/g';
+                document.getElementById('precio18k').textContent = precio18k + ' €/g';
+            }
+        })
+        .catch(console.error);
 
     slides.addEventListener('touchstart', e => {
         startX = e.touches[0].clientX;
@@ -556,18 +566,21 @@
         endX = e.touches[0].clientX;
     });
 
-    slides.addEventListener('touchend', () => {
+    slides.addEventListener('touchend', e => {
+        const endX = e.changedTouches[0].clientX;
         const diffX = startX - endX;
 
-        if (Math.abs(diffX) > 50) {
+        if (Math.abs(diffX) > 40) {
             if (diffX > 0) {
                 currentIndex = (currentIndex + 1) % totalSlides;
             } else {
                 currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
             }
             updateSlide();
+            resetAutoSlide();
         }
     });
+
 
     function updateSlide(index = currentIndex) {
         currentIndex = index;
@@ -584,10 +597,27 @@
 
     for (let i = 0; i < totalSlides; i++) {
         const btn = document.createElement('button');
-        btn.onclick = () => updateSlide(i);
+        btn.onclick = () => {
+            updateSlide(i);
+            resetAutoSlide();
+        };
         dotsContainer.appendChild(btn);
     }
     updateSlide(0);
+
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(() => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateSlide();
+        }, 3000);
+    }
+
+    function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+    }
+
+    startAutoSlide();
 
     function toggleMenu() {
         const menu = document.getElementById('menu');
@@ -598,10 +628,8 @@
     document.addEventListener('click', function (event) {
         const menu = document.getElementById('menu');
         const burger = document.querySelector('.burger');
-
         const isClickInsideMenu = menu.contains(event.target);
         const isClickOnBurger = burger.contains(event.target);
-
         if (!isClickInsideMenu && !isClickOnBurger && menu.classList.contains('active')) {
             menu.classList.remove('active');
             document.body.classList.remove('menu-open');
