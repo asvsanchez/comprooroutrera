@@ -562,10 +562,6 @@
         startX = e.touches[0].clientX;
     });
 
-    slides.addEventListener('touchmove', e => {
-        endX = e.touches[0].clientX;
-    });
-
     slides.addEventListener('touchend', e => {
         const endX = e.changedTouches[0].clientX;
         const diffX = startX - endX;
@@ -580,7 +576,6 @@
             resetAutoSlide();
         }
     });
-
 
     function updateSlide(index = currentIndex) {
         currentIndex = index;
