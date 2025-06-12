@@ -37,6 +37,16 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
+        .direccion {
+            text-align: center;
+            font-size: 14px;
+            color: #444;
+            background-color: #f5f5f5;
+            padding: 0.5rem 1rem;
+            font-weight: 500;
+            border-bottom: 1px solid #ddd;
+        }
+
         .logo img {
             height: 40px;
         }
@@ -77,6 +87,10 @@
             background-color: #d4af37;
         }
 
+        nav#menu.active {
+            background: #f7f7f7;
+        }
+
         .hero {
             position: relative;
         }
@@ -110,21 +124,34 @@
             background-position: center;
             text-align: center;
             flex: 0 0 100%;
+            position: relative;
         }
 
         .slide h1 {
             font-size: 2.5rem;
+            position: relative;
+            z-index: 1;
         }
 
         .slide p {
             font-size: 1.2rem;
             margin-top: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
         }
 
         .dots {
             text-align: center;
-            margin: 1rem 0;
-            margin-bottom: 0;
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
         }
 
         .dots button {
@@ -166,6 +193,7 @@
 
         .text-center {
             text-align: center;
+            margin-top: 20px;
         }
 
         .elemento-grid {
@@ -205,6 +233,21 @@
             transform: translateY(-8px);
             box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
             border-color: #ffd700;
+        }
+
+        #tarifas .elemento-item {
+            border: 2px solid #ffd700;
+            animation: resplandor 2s infinite alternate;
+        }
+
+        @keyframes resplandor {
+            0% {
+                box-shadow: 0 0 10px #ffd700;
+            }
+
+            100% {
+                box-shadow: 0 0 25px #ffd700;
+            }
         }
 
         .elemento-item h3 {
@@ -392,6 +435,9 @@
 </header>
 
 <div class="hero">
+    <div class="direccion">
+        Calle Las Mujeres 1, Utrera, Sevilla
+    </div>
     <div class="slides-wrapper">
         <div class="slides" id="slides">
             <div class="slide"
@@ -512,14 +558,15 @@
         <h2>Contacto</h2>
 
         <div>
-            <iframe src="https://www.google.com/maps?q=Calle+Charco+1,+Los Palacios y Villafranca, Sevilla&output=embed"
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3178.7915214921827!2d-5.782721258998558!3d37.18142517225691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd127f0db30558eb%3A0x46d4102932fa3444!2sC.%20las%20Mujeres%2C%201%2C%2041710%20Utrera%2C%20Sevilla!5e0!3m2!1ses!2ses!4v1749747600629!5m2!1ses!2ses"
                 width="100%" height="300" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade">
             </iframe>
         </div>
 
         <br />
-        <p>📍 <strong>Visítanos:</strong> Calle Charco 1, Los Palacios y Villafranca, Sevilla</p>
+        <p>📍 <strong>Visítanos:</strong> Calle Las Mujeres 1, Utrera, Sevilla</p>
         <p>📲 <strong>Llámanos:</strong> <a href="tel:+34611023363">611 023 363</a> ¡También puedes hablarnos por
             WhatsApp!
         <p>✉️ <strong>Email:</strong> <a href="mailto:info@comproorosevilla.com">info@comproorosevilla.com</a></p>
