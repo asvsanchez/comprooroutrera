@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Compramos oro al mejor precio en Sevilla. Tasación profesional, pago inmediato y atención personalizada. ¡Visítanos hoy!">
+        content="Vende tu oro en Utrera al mejor precio. Tasación experta, pago inmediato y atención cercana. ¡Visítanos hoy en Calle Las Mujeres!">
     <meta name="keywords" content="compro oro, oro sevilla, vender oro, joyas, tasación oro">
     <meta name="author" content="Compro Oro Sevilla">
-    <title>Compro Oro Sevilla - Mejor Precio por tu Oro</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="icon" href="https://png.pngtree.com/element_our/png/20181114/gold-icon-png_239829.jpg">
+    <title>Compro Oro en Sevilla | Tasación Profesional y Pago al Instante</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3309/3309977.png">
     <style>
         * {
             margin: 0;
@@ -217,12 +217,6 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .elemento-item:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
-            border-color: #ffd700;
-        }
-
         .elemento-item p {
             margin-top: 0.5rem;
             color: #444;
@@ -236,7 +230,7 @@
         }
 
         #tarifas .elemento-item {
-            border: 2px solid #ffd700;
+            border: 1px solid #ffd700;
             animation: resplandor 2s infinite alternate;
         }
 
@@ -310,7 +304,6 @@
             content: "\f232";
             font-family: "Font Awesome 5 Free";
             position: absolute;
-            ;
         }
 
         footer {
@@ -403,18 +396,7 @@
                 display: flex;
             }
         }
-
-        li::marker {
-            content: "\1F4C5  ";
-        }
-
-        ul,
-        ol {
-            list-style: none;
-            padding-left: 0;
-        }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <header>
     <div class="logo"><img src="https://cdn-icons-png.flaticon.com/512/3309/3309977.png" alt="Logo Compro Oro"></div>
@@ -426,9 +408,9 @@
     <nav id="menu">
         <a href="#tarifas">Tarifas</a>
         <a href="#proceso">Proceso</a>
-        <a href="#nosotros">Sobre nosotros</a>
+        <a href="#nosotros">Nosotros</a>
         <a href="#servicios">Servicios</a>
-        <a href="#porque">¿Por qué elegirnos?</a>
+        <a href="#porque">Elígenos</a>
         <a href="#opiniones">Opiniones</a>
         <a href="#contacto">Contacto</a>
     </nav>
@@ -436,7 +418,7 @@
 
 <div class="hero">
     <div class="direccion">
-       📍 Calle Las Mujeres 1, Utrera, Sevilla
+        📍 Calle Las Mujeres 1, Utrera, Sevilla
     </div>
     <div class="slides-wrapper">
         <div class="slides" id="slides">
@@ -506,10 +488,29 @@
         </div>
     </section>
 
-    <section id="nosotros">
-        <h2>Sobre nosotros</h2>
-        <p>Somos una empresa sevillana con más de 15 años de experiencia en la compra de oro. Nuestro compromiso es
-            ofrecerte transparencia, profesionalidad y los mejores precios del mercado.</p>
+    <section id="nosotros" style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; margin-bottom: 2rem;">
+        <div style="flex: 1; min-width: 280px; text-align: justify;">
+            <h2>Sobre nosotros</h2>
+            <p>Somos una empresa sevillana con más de 15 años de experiencia en el sector de la compra y venta de
+                metales preciosos. Durante todo este tiempo, hemos consolidado una reputación basada en la honestidad,
+                la profesionalidad y el compromiso con nuestros clientes.</p>
+
+            <p>Nos especializamos en la compra de oro, plata, joyas, monedas y otros objetos valiosos, ofreciendo
+                siempre las mejores condiciones del mercado. Nuestros precios se actualizan diariamente según la
+                cotización oficial, asegurando que obtengas una tasación justa, clara y sin letra pequeña.</p>
+
+            <p>Contamos con un equipo humano formado por expertos tasadores que te atenderán de manera personalizada y
+                confidencial. Valoramos tu tiempo y tus necesidades, por eso realizamos tasaciones al momento y sin
+                compromiso, en un entorno cómodo y seguro.</p>
+
+            <p>Nuestra prioridad es brindarte una experiencia transparente y satisfactoria, tanto si vienes a vender una
+                joya heredada como si deseas obtener liquidez con total confianza. Trabajamos para que te sientas
+                informado y acompañado en todo momento.</p>
+        </div>
+        <div style="flex: 1; min-width: 280px;">
+            <img src="https://lh3.googleusercontent.com/p/AF1QipPEtkhqP0Lwyj6c98XZbCGNo-Ww8e_s_KRMgioC=s1360-w1360-h1020"
+                alt="Local de compro oro en Sevilla" style="width: 100%; height: auto; border-radius: 8px;">
+        </div>
     </section>
 
     <section id="servicios" class="text-center">
@@ -677,6 +678,16 @@
             document.body.classList.remove('menu-open');
         }
     });
+
+    window.history.scrollRestoration = 'manual';
+
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            window.scrollTo(0, 0);
+        }, 15);
+    });
+</script>
+
 </script>
 </body>
 
