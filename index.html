@@ -10,7 +10,7 @@
         content="compro oro, vender oro en Utrera, tasación oro, joyas, compraventa oro, oro usado, tienda de oro en Utrera">
     <meta name="author" content="Compro Oro Utrera">
     <title>Compro Oro en Utrera | Mejor Precio y Pago al Instante</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/fontawesome.css">
     <link rel="icon" href="img/gold.png">
     <style>
         * {
@@ -108,17 +108,18 @@
         .slides-wrapper {
             overflow: hidden;
             position: relative;
+            margin-bottom: 10px;
         }
 
         .slides {
             display: flex;
             transition: transform 0.5s ease-in-out;
-            height: 300px;
+            height: 250px;
         }
 
         .slide {
             min-width: 100%;
-            padding: 5rem 2rem;
+            padding: 4rem 2rem;
             color: white;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             background-size: cover;
@@ -128,8 +129,8 @@
             position: relative;
         }
 
-        .slide h1 {
-            font-size: 2.5rem;
+        .slide h3 {
+            font-size: 2rem;
             position: relative;
             z-index: 1;
         }
@@ -181,7 +182,7 @@
         }
 
         section {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             scroll-margin-top: 80px;
         }
 
@@ -399,300 +400,303 @@
         }
     </style>
 </head>
-<header>
-    <div class="logo"><img src="img/gold.png" alt="Logo Compro Oro"></div>
-    <div class="burger" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
+
+<body>
+    <header>
+        <div class="logo"><img src="img/gold.png" alt="Logo Compro Oro"></div>
+        <div class="burger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav id="menu">
+            <a href="#tarifas">Tarifas</a>
+            <a href="#proceso">Proceso</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#porque">Elígenos</a>
+            <a href="#opiniones">Opiniones</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="direccion">
+            <h1>Compro Oro Utrera</h1>
+            <p>📍 Calle Las Mujeres 1, Utrera, Sevilla</p>
+        </div>
+        <section id="tarifas" class="container text-center">
+            <div class="elemento-grid">
+                <div class="elemento-item" style="padding: 1rem;">
+                    <h3 style="margin-bottom: 0;">🟨 ORO DE 24 KILATES</h3>
+                    <p class="descripcion">PAGAMOS HASTA</p>
+                    <p id="precio24k" class="precio">🔄 €/g</p>
+                </div>
+                <div class="elemento-item" style="padding: 1rem;">
+                    <h3 style="margin-bottom: 0;">🟧 ORO DE 18 KILATES</h3>
+                    <p class="descripcion">PAGAMOS HASTA</p>
+                    <p id="precio18k" class="precio">🔄 €/g</p>
+                </div>
+                <div class="elemento-item" style="padding: 1rem;">
+                    <h3 style="margin-bottom: 0;">🟫 ORO DE 14 KILATES</h3>
+                    <p class="descripcion">PAGAMOS HASTA</p>
+                    <p id="precio14k" class="precio">50 €/g</p>
+                </div>
+            </div>
+            <div class="elemento-text" style="margin-top: 15px;">
+                <h3>¡Aprovecha hoy los mejores precios por tu oro!</h3>
+            </div>
+            <div
+                style="display: flex; justify-content: center; align-items: center; margin-top: -15px; margin-bottom: 20px;">
+                <img src="img/woman-surprised.png" alt="Rostro mujer sorprendida"
+                    style="width: 100%; max-width: 280px; height: auto; border-radius: 8px;">
+            </div>
+        </section>
+        <div class="slides-wrapper">
+            <div class="slides" id="slides">
+                <div class="slide" style="background-image: url('img/money.jpeg');">
+                    <h3>Visítanos 🏪</h3>
+                    <p>Encuentranos en nuestros establecimientos</p>
+                </div>
+                <div class="slide" style="background-image: url('img/ingot.jpeg');">
+                    <h3>Confianza 💼</h3>
+                    <p>Nos avalan 15 años de experiencia</p>
+                </div>
+                <div class="slide" style="background-image: url('img/watch.jpeg');">
+                    <h3>Tasación 💶</h3>
+                    <p>Precio máximo garantizado</p>
+                </div>
+            </div>
+            <div class="dots" id="dots"></div>
+        </div>
     </div>
-    <nav id="menu">
-        <a href="#tarifas">Tarifas</a>
-        <a href="#proceso">Proceso</a>
-        <a href="#nosotros">Nosotros</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#porque">Elígenos</a>
-        <a href="#opiniones">Opiniones</a>
-        <a href="#contacto">Contacto</a>
-    </nav>
-</header>
 
-<div class="hero">
-    <div class="direccion">
-        📍 Calle Las Mujeres 1, Utrera, Sevilla
-    </div>
-    <section id="tarifas" class="container text-center">
-        <div class="elemento-grid">
-            <div class="elemento-item" style="padding: 1rem;">
-                <h3 style="margin-bottom: 0;">🟨 ORO DE 24 KILATES</h3>
-                <p class="descripcion">PAGAMOS HASTA</p>
-                <p id="precio24k" class="precio">- €/g</p>
+    <main class="container">
+        <section id="nosotros" style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem;">
+            <div style="flex: 1; min-width: 280px; text-align: justify;">
+                <h2>Sobre nosotros</h2>
+                <p>Somos una empresa sevillana con más de 15 años de experiencia en el sector de la compra y venta de
+                    metales preciosos. Durante todo este tiempo, hemos consolidado una reputación basada en la
+                    honestidad,
+                    la profesionalidad y el compromiso con nuestros clientes.</p>
+
+                <p>Nos especializamos en la compra de oro, plata, joyas, monedas y otros objetos valiosos, ofreciendo
+                    siempre las mejores condiciones del mercado. Nuestros precios se actualizan diariamente según la
+                    cotización oficial, asegurando que obtengas una tasación justa, clara y sin letra pequeña.</p>
+
+                <p>Contamos con un equipo humano formado por expertos tasadores que te atenderán de manera personalizada
+                    y
+                    confidencial. Valoramos tu tiempo y tus necesidades, por eso realizamos tasaciones al momento y sin
+                    compromiso, en un entorno cómodo y seguro.</p>
+
+                <p>Nuestra prioridad es brindarte una experiencia transparente y satisfactoria, tanto si vienes a vender
+                    una
+                    joya heredada como si deseas obtener liquidez con total confianza. Trabajamos para que te sientas
+                    informado y acompañado en todo momento.</p>
             </div>
-            <div class="elemento-item" style="padding: 1rem;">
-                <h3 style="margin-bottom: 0;">🟧 ORO DE 18 KILATES</h3>
-                <p class="descripcion">PAGAMOS HASTA</p>
-                <p id="precio18k" class="precio">- €/g</p>
+            <div style="flex: 1; min-width: 280px;">
+                <img src="https://lh3.googleusercontent.com/p/AF1QipPEtkhqP0Lwyj6c98XZbCGNo-Ww8e_s_KRMgioC=s1360-w1360-h1020"
+                    alt="Local de compro oro en Utrera" style="width: 100%; height: auto; border-radius: 8px;">
             </div>
-            <div class="elemento-item" style="padding: 1rem;">
-                <h3 style="margin-bottom: 0;">🟫 ORO DE 14 KILATES</h3>
-                <p class="descripcion">PAGAMOS HASTA</p>
-                <p id="precio14k" class="precio">50 €/g</p>
+        </section>
+
+        <section id="servicios" class="text-center">
+            <h2>Servicios</h2>
+            <div class="elemento-grid">
+                <div class="elemento-item">💍<p>Compra de joyas de oro</p>
+                </div>
+                <div class="elemento-item">🆓<p>Asesoramiento gratuito</p>
+                </div>
+                <div class="elemento-item">🧠<p>Tasación profesional sin compromiso</p>
+                </div>
+        </section>
+
+        <section id="porque" class="text-center">
+            <h2>¿Por qué elegirnos?</h2>
+            <div class="elemento-grid">
+                <div class="elemento-item">📊<p>Precios actualizados diariamente</p>
+                </div>
+                <div class="elemento-item">🙋<p>Atención personalizada</p>
+                </div>
+                <div class="elemento-item">🌟<p>Más de 1000 clientes satisfechos</p>
+                </div>
+                <div class="elemento-item">🔒<p>Privacidad y discreción total</p>
+                </div>
             </div>
-        </div>
-        <div class="elemento-text" style="margin-top: 15px;">
-            <h3>¡Aprovecha hoy los mejores precios por tu oro!</h3>
-        </div>
-        <div style="display: flex; justify-content: center; align-items: center; margin-top: -15px; margin-bottom: 20px;">
-            <img src="img/woman-surprised.png" alt="Rostro mujer sorprendida"
-                style="width: 100%; max-width: 280px; height: auto; border-radius: 8px;">
-        </div>
-    </section>
-    <div class="slides-wrapper">
-        <div class="slides" id="slides">
-            <div class="slide"
-                style="background-image: url('https://oro-money.com/wp-content/uploads/2024/03/consejos-obtener-tasacion-vender-tu-oro-646.png');">
-                <h1>Oro 24K</h1>
-                <p>El mejor precio del mercado</p>
+        </section>
+
+        <section id="proceso" class="text-center">
+            <h2>Proceso</h2>
+            <div class="proceso-pasos">
+                <div class="paso">
+                    <div class="icono">💎</div>
+                    <p>Trae tus piezas<br>a nuestra tienda</p>
+                </div>
+                <div class="flecha">➡️</div>
+                <div class="paso">
+                    <div class="icono">🔍</div>
+                    <p>Tasación al instante<br>por expertos</p>
+                </div>
+                <div class="flecha">➡️</div>
+                <div class="paso">
+                    <div class="icono">📈</div>
+                    <p>Valor actualizado<br>por gramo</p>
+                </div>
+                <div class="flecha">➡️</div>
+                <div class="paso">
+                    <div class="icono">💵</div>
+                    <p>Pago inmediato<br>en efectivo o transferencia</p>
+                </div>
             </div>
-            <div class="slide" style="background-image: url('https://www.comprooromadrid.com/images/slider/5.jpg');">
-                <h1>Joyas de oro</h1>
-                <p>Tasación profesional al instante</p>
+        </section>
+
+        <section id="opiniones" class="opiniones">
+            <h2>Opiniones de nuestros clientes</h2>
+            <div class="opinion">
+                <p>"Muy buen trato, me explicaron todo y me pagaron al momento. Recomendado 100%." - <strong>Laura
+                        M.</strong></p>
             </div>
-            <div class="slide"
-                style="background-image: url('https://mastergold.es/wp-content/uploads/2020/04/MIX-JOYAS.jpg');">
-                <h1>Lingotes</h1>
-                <p>Pagamos al instante y sin comisiones</p>
+            <div class="opinion">
+                <p>"Los mejores precios que encontré en Utrera. Profesionales y rápidos." - <strong>Antonio G.</strong>
+                </p>
             </div>
-        </div>
-        <div class="dots" id="dots"></div>
-    </div>
-</div>
-
-<main class="container">
-    <section id="nosotros" style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem;">
-        <div style="flex: 1; min-width: 280px; text-align: justify;">
-            <h2>Sobre nosotros</h2>
-            <p>Somos una empresa sevillana con más de 15 años de experiencia en el sector de la compra y venta de
-                metales preciosos. Durante todo este tiempo, hemos consolidado una reputación basada en la honestidad,
-                la profesionalidad y el compromiso con nuestros clientes.</p>
-
-            <p>Nos especializamos en la compra de oro, plata, joyas, monedas y otros objetos valiosos, ofreciendo
-                siempre las mejores condiciones del mercado. Nuestros precios se actualizan diariamente según la
-                cotización oficial, asegurando que obtengas una tasación justa, clara y sin letra pequeña.</p>
-
-            <p>Contamos con un equipo humano formado por expertos tasadores que te atenderán de manera personalizada y
-                confidencial. Valoramos tu tiempo y tus necesidades, por eso realizamos tasaciones al momento y sin
-                compromiso, en un entorno cómodo y seguro.</p>
-
-            <p>Nuestra prioridad es brindarte una experiencia transparente y satisfactoria, tanto si vienes a vender una
-                joya heredada como si deseas obtener liquidez con total confianza. Trabajamos para que te sientas
-                informado y acompañado en todo momento.</p>
-        </div>
-        <div style="flex: 1; min-width: 280px;">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipPEtkhqP0Lwyj6c98XZbCGNo-Ww8e_s_KRMgioC=s1360-w1360-h1020"
-                alt="Local de compro oro en Utrera" style="width: 100%; height: auto; border-radius: 8px;">
-        </div>
-    </section>
-
-    <section id="servicios" class="text-center">
-        <h2>Servicios</h2>
-        <div class="elemento-grid">
-            <div class="elemento-item">💍<p>Compra de joyas de oro</p>
+            <div class="opinion">
+                <p>"Volveré sin duda. Son muy honestos y atentos." - <strong>Carmen F.</strong></p>
             </div>
-            <div class="elemento-item">🆓<p>Asesoramiento gratuito</p>
+        </section>
+
+        <section id="contacto" class="text-center">
+            <h2>Contacto</h2>
+
+            <div>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3178.7915214921827!2d-5.782721258998558!3d37.18142517225691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd127f0db30558eb%3A0x46d4102932fa3444!2sC.%20las%20Mujeres%2C%201%2C%2041710%20Utrera%2C%20Sevilla!5e0!3m2!1ses!2ses!4v1749747600629!5m2!1ses!2ses"
+                    width="100%" height="300" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
-            <div class="elemento-item">🧠<p>Tasación profesional sin compromiso</p>
-            </div>
-            </ul>
-    </section>
 
-    <section id="porque" class="text-center">
-        <h2>¿Por qué elegirnos?</h2>
-        <div class="elemento-grid">
-            <div class="elemento-item">📊<p>Precios actualizados diariamente</p>
-            </div>
-            <div class="elemento-item">🙋<p>Atención personalizada</p>
-            </div>
-            <div class="elemento-item">🌟<p>Más de 1000 clientes satisfechos</p>
-            </div>
-            <div class="elemento-item">🔒<p>Privacidad y discreción total</p>
-            </div>
-        </div>
-    </section>
+            <br />
+            <p>📍 <strong>Visítanos:</strong> Calle Las Mujeres 1, Utrera, Sevilla</p>
+            <p>📲 <strong>Llámanos:</strong> <a href="tel:+34611023363">611 023 363</a> ¡También puedes hablarnos por
+                WhatsApp!
+            <p>✉️ <strong>Email:</strong> <a href="mailto:info@comprooroutrera.com">info@comprooroutrera.com</a></p>
+        </section>
+    </main>
+    <a href="https://api.whatsapp.com/send?phone=+34611023363" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-    <section id="proceso" class="text-center">
-        <h2>Proceso</h2>
-        <div class="proceso-pasos">
-            <div class="paso">
-                <div class="icono">💎</div>
-                <p>Trae tus piezas<br>a nuestra tienda</p>
-            </div>
-            <div class="flecha">➡️</div>
-            <div class="paso">
-                <div class="icono">🔍</div>
-                <p>Tasación al instante<br>por expertos</p>
-            </div>
-            <div class="flecha">➡️</div>
-            <div class="paso">
-                <div class="icono">📈</div>
-                <p>Valor actualizado<br>por gramo</p>
-            </div>
-            <div class="flecha">➡️</div>
-            <div class="paso">
-                <div class="icono">💵</div>
-                <p>Pago inmediato<br>en efectivo o transferencia</p>
-            </div>
-        </div>
-    </section>
+    <footer>
+        Compro Oro Utrera &copy; XoD Apps
+    </footer>
 
-    <section id="opiniones" class="opiniones">
-        <h2>Opiniones de nuestros clientes</h2>
-        <div class="opinion">
-            <p>"Muy buen trato, me explicaron todo y me pagaron al momento. Recomendado 100%." - <strong>Laura
-                    M.</strong></p>
-        </div>
-        <div class="opinion">
-            <p>"Los mejores precios que encontré en Utrera. Profesionales y rápidos." - <strong>Antonio G.</strong></p>
-        </div>
-        <div class="opinion">
-            <p>"Volveré sin duda. Son muy honestos y atentos." - <strong>Carmen F.</strong></p>
-        </div>
-    </section>
+    <script>
+        const slides = document.getElementById('slides');
+        const totalSlides = slides.children.length;
+        const dotsContainer = document.getElementById('dots');
+        let currentIndex = 0;
+        let startX = 0;
+        let endX = 0;
+        let autoSlideInterval;
 
-    <section id="contacto" class="text-center">
-        <h2>Contacto</h2>
+        fetch('https://api.allorigins.win/raw?url=https://www.joyeriachaves.es/oro/')
+            .then(res => res.text())
+            .then(html => {
+                const div = document.createElement('div');
+                div.innerHTML = html;
+                const text = div.textContent;
+                const matches = [...text.matchAll(/(\d+,\d+)\s*€\/g/g)];
+                if (matches.length >= 3) {
+                    const precio24k = matches[0][1].replace(',', '.');
+                    const precio18k = matches[2][1].replace(',', '.');
+                    document.getElementById('precio24k').textContent = precio24k + ' €/g';
+                    document.getElementById('precio18k').textContent = precio18k + ' €/g';
+                }
+            })
+            .catch(console.error);
 
-        <div>
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3178.7915214921827!2d-5.782721258998558!3d37.18142517225691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd127f0db30558eb%3A0x46d4102932fa3444!2sC.%20las%20Mujeres%2C%201%2C%2041710%20Utrera%2C%20Sevilla!5e0!3m2!1ses!2ses!4v1749747600629!5m2!1ses!2ses"
-                width="100%" height="300" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-        </div>
-
-        <br />
-        <p>📍 <strong>Visítanos:</strong> Calle Las Mujeres 1, Utrera, Sevilla</p>
-        <p>📲 <strong>Llámanos:</strong> <a href="tel:+34611023363">611 023 363</a> ¡También puedes hablarnos por
-            WhatsApp!
-        <p>✉️ <strong>Email:</strong> <a href="mailto:info@comprooroutrera.com">info@comprooroutrera.com</a></p>
-    </section>
-</main>
-<a href="https://api.whatsapp.com/send?phone=+34611023363" class="whatsapp-float" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-</a>
-
-<footer>
-    &copy; 2025 Compro Oro Utrera
-</footer>
-
-<script>
-    const slides = document.getElementById('slides');
-    const totalSlides = slides.children.length;
-    const dotsContainer = document.getElementById('dots');
-    let currentIndex = 0;
-    let startX = 0;
-    let endX = 0;
-    let autoSlideInterval;
-
-    fetch('https://api.allorigins.win/raw?url=https://www.joyeriachaves.es/oro/')
-        .then(res => res.text())
-        .then(html => {
-            const div = document.createElement('div');
-            div.innerHTML = html;
-            const text = div.textContent;
-            const matches = [...text.matchAll(/(\d+,\d+)\s*€\/g/g)];
-            if (matches.length >= 3) {
-                const precio24k = matches[0][1].replace(',', '.');
-                const precio18k = matches[2][1].replace(',', '.');
-                document.getElementById('precio24k').textContent = precio24k + ' €/g';
-                document.getElementById('precio18k').textContent = precio18k + ' €/g';
-            }
-        })
-        .catch(console.error);
-
-    slides.addEventListener('touchstart', e => {
-        startX = e.touches[0].clientX;
-    });
-
-    slides.addEventListener('touchend', e => {
-        const endX = e.changedTouches[0].clientX;
-        const diffX = startX - endX;
-
-        if (Math.abs(diffX) > 40) {
-            if (diffX > 0) {
-                currentIndex = (currentIndex + 1) % totalSlides;
-            } else {
-                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-            }
-            updateSlide();
-            resetAutoSlide();
-        }
-    });
-
-    function updateSlide(index = currentIndex) {
-        currentIndex = index;
-        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-        updateDots();
-    }
-
-    function updateDots() {
-        const dots = document.querySelectorAll('#dots button');
-        dots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === currentIndex);
+        slides.addEventListener('touchstart', e => {
+            startX = e.touches[0].clientX;
         });
-    }
 
-    for (let i = 0; i < totalSlides; i++) {
-        const btn = document.createElement('button');
-        btn.onclick = () => {
-            updateSlide(i);
-            resetAutoSlide();
-        };
-        dotsContainer.appendChild(btn);
-    }
-    updateSlide(0);
+        slides.addEventListener('touchend', e => {
+            const endX = e.changedTouches[0].clientX;
+            const diffX = startX - endX;
 
-    function startAutoSlide() {
-        autoSlideInterval = setInterval(() => {
-            currentIndex = (currentIndex + 1) % totalSlides;
-            updateSlide();
-        }, 3000);
-    }
+            if (Math.abs(diffX) > 40) {
+                if (diffX > 0) {
+                    currentIndex = (currentIndex + 1) % totalSlides;
+                } else {
+                    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                }
+                updateSlide();
+                resetAutoSlide();
+            }
+        });
 
-    function resetAutoSlide() {
-        clearInterval(autoSlideInterval);
-        startAutoSlide();
-    }
-
-    startAutoSlide();
-
-    function toggleMenu() {
-        const menu = document.getElementById('menu');
-        menu.classList.toggle('active');
-        document.body.classList.toggle('menu-open');
-    }
-
-    document.addEventListener('click', function (event) {
-        const menu = document.getElementById('menu');
-        const burger = document.querySelector('.burger');
-        const isClickInsideMenu = menu.contains(event.target);
-        const isClickOnBurger = burger.contains(event.target);
-        if (!isClickInsideMenu && !isClickOnBurger && menu.classList.contains('active')) {
-            menu.classList.remove('active');
-            document.body.classList.remove('menu-open');
+        function updateSlide(index = currentIndex) {
+            currentIndex = index;
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+            updateDots();
         }
-    });
 
-    window.history.scrollRestoration = 'manual';
+        function updateDots() {
+            const dots = document.querySelectorAll('#dots button');
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentIndex);
+            });
+        }
 
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            window.scrollTo(0, 0);
-        }, 15);
-    });
-</script>
+        for (let i = 0; i < totalSlides; i++) {
+            const btn = document.createElement('button');
+            btn.onclick = () => {
+                updateSlide(i);
+                resetAutoSlide();
+            };
+            dotsContainer.appendChild(btn);
+        }
+        updateSlide(0);
 
-</script>
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateSlide();
+            }, 3000);
+        }
+
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
+
+        startAutoSlide();
+
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        }
+
+        document.addEventListener('click', function (event) {
+            const menu = document.getElementById('menu');
+            const burger = document.querySelector('.burger');
+            const isClickInsideMenu = menu.contains(event.target);
+            const isClickOnBurger = burger.contains(event.target);
+            if (!isClickInsideMenu && !isClickOnBurger && menu.classList.contains('active')) {
+                menu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            }
+        });
+
+        window.history.scrollRestoration = 'manual';
+
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                window.scrollTo(0, 0);
+            }, 15);
+        });
+    </script>
 </body>
 
 </html>
