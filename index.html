@@ -197,14 +197,22 @@
         .text-center {
             text-align: center;
             margin-top: 20px;
-            align-items: center; 
+            align-items: center;
             gap: 2rem;
         }
 
         .elemento-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
+            gap: 0.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        #tarifas .elemento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 4rem;
             max-width: 900px;
             margin: 0 auto;
         }
@@ -237,6 +245,11 @@
         #tarifas .elemento-item {
             border: 4px solid #ffffff;
             animation: resplandor 2s infinite alternate;
+            background-color: #d4af37;
+            color: black;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
         }
 
         @keyframes resplandor {
@@ -252,7 +265,7 @@
         .elemento-item h3 {
             margin-bottom: 0.5rem;
             color: black;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
         }
 
         .elemento-item .precio {
@@ -291,6 +304,11 @@
             padding: 1rem;
             background: #f1f1f1;
             border-left: 5px solid #d4af37;
+        }
+
+        .elemento-item .euro {
+            margin: 0;
+            font-size: 1.4rem;
         }
 
         .btn {
@@ -418,6 +436,51 @@
             .burger {
                 display: flex;
             }
+
+            #tarifas .elemento-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                gap: 0.4rem;
+                max-width: 900px;
+                margin: 0 auto;
+            }
+
+            .elemento-item h3 {
+                font-size: 1rem;
+                margin: -1rem 0;
+
+            }
+
+            .elemento-item .descripcion {
+                font-size: 0.8rem;
+                line-height: 1.4;
+                margin: -0.2rem 0;
+            }
+
+            .elemento-item .euro {
+                margin: 0;
+                font-size: 1rem;
+            }
+
+            #tarifas .elemento-item {
+                padding: 1rem;
+                max-width: 110px;
+                box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+                font-size: 1rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .elemento-item .precio {
+                font-size: 1.8rem;
+                margin: 0.3rem 0;
+            }
+
+
+            .precio-brillante {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
@@ -450,24 +513,24 @@
             <div class="elemento-grid">
                 <div class="elemento-item"
                     style="background-color: #d4af37; color: black; padding: 2rem; width: 250px; border-radius: 10px;">
-                    <h3 style="margin-bottom: 1rem; font-weight: bold; font-size: 1.4rem;">ORO DE 24 KILATES</h3>
+                    <h3 style="margin-bottom: 1rem; font-weight: bold;">ORO DE 24 KILATES</h3>
                     <p class="descripcion">Pagamos hasta</p>
                     <p id="precio24k" class="precio">🔄</p>
-                    <p style="margin: 0; font-size: 1.4rem;">€/GR</p>
-                </div>
-                <div class="elemento-item"
-                    style="background-color: #d4af37; color: black; padding: 2rem; width: 250px; border-radius: 10px;"">
-                    <h3 style=" margin-bottom: 1rem; font-weight: bold; font-size: 1.4rem;">ORO DE 18 KILATES</h3>
-                    <p class="descripcion">Pagamos hasta</p>
-                    <p id="precio18k" class="precio">🔄</p>
-                    <p style="margin: 0; font-size: 1.4rem;">€/GR</p>
+                    <p class="euro">€/GR</p>
                 </div>
                 <div class="elemento-item"
                     style="background-color: #d4af37; color: black; padding: 2rem; width: 250px; border-radius: 10px;">
-                    <h3 style="margin-bottom: 1rem; font-weight: bold; font-size: 1.4rem;">ORO DE 14 KILATES</h3>
+                    <h3 style=" margin-bottom: 1rem; font-weight: bold;">ORO DE 18 KILATES</h3>
+                    <p class="descripcion">Pagamos hasta</p>
+                    <p id="precio18k" class="precio">🔄</p>
+                    <p class="euro">€/GR</p>
+                </div>
+                <div class="elemento-item"
+                    style="background-color: #d4af37; color: black; padding: 2rem; width: 250px; border-radius: 10px;">
+                    <h3 style="margin-bottom: 1rem; font-weight: bold;">ORO DE 14 KILATES</h3>
                     <p class="descripcion">Pagamos hasta</p>
                     <p id="precio14k" class="precio">50</p>
-                    <p style="margin: 0; font-size: 1.4rem;">€/GR</p>
+                    <p class="euro">€/GR</p>
                 </div>
             </div>
             <div class="elemento-text" style="margin-top: 15px;">
@@ -538,7 +601,7 @@
                 </div>
             </div>
             <img src="img/pesaje-oro.jpg" alt="Procedimiento de pesaje del oro"
-                    style="width: 100%; height: auto; border-radius: 30px; padding: 20px;">
+                style="width: 100%; height: auto; border-radius: 30px; padding: 20px;">
         </section>
 
         <section id="porque" class="text-center">
