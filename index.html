@@ -11,7 +11,7 @@
     <meta name="author" content="Compro Oro Utrera">
     <title>Compro Oro en Utrera | Mejor Precio y Pago al Instante</title>
     <link rel="stylesheet" href="css/fontawesome.css">
-    <link rel="icon" href="img/gold.png">
+    <link rel="icon" href="img/gold.ico" type="image/x-icon">
     <style>
         * {
             margin: 0;
@@ -186,7 +186,7 @@
             scroll-margin-top: 80px;
         }
 
-        h2 {
+        h2:not(#title) {
             color: #d4af37;
             margin-bottom: 1rem;
             font-size: 2.2rem;
@@ -349,7 +349,7 @@
 
         footer {
             text-align: center;
-            padding: 2rem 1rem;
+            padding: 1rem 1rem;
             background: #f4f4f4;
             color: #777;
             font-size: 0.9rem;
@@ -464,7 +464,7 @@
 
             #tarifas .elemento-item {
                 padding: 1rem;
-                max-width: 110px;
+                max-width: 97%;
                 box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
                 font-size: 1rem;
                 display: flex;
@@ -473,14 +473,14 @@
             }
 
             @keyframes resplandor {
-            0% {
-                box-shadow: 0 0 10px #ffd700;
-            }
+                0% {
+                    box-shadow: 0 0 10px #ffd700;
+                }
 
-            100% {
-                box-shadow: 0 0 6px #ffd700;
+                100% {
+                    box-shadow: 0 0 6px #ffd700;
+                }
             }
-        }
 
             .elemento-item .precio {
                 font-size: 1.8rem;
@@ -509,16 +509,16 @@
             <a href="#servicios">Servicios</a>
             <a href="#porque">Elígenos</a>
             <a href="#opiniones">Opiniones</a>
-            <a href="#contacto">Contacto</a>
+            <a href="#contacto" style="margin-right: 10px;">Contacto</a>
         </nav>
     </header>
 
     <div class="hero">
         <div class="direccion">
-            <h1>Compro Oro Utrera</h1>
+            <h2 id="title">Compro Oro Utrera</h2>
             <p>📍 Calle Las Mujeres 1, Utrera, Sevilla</p>
         </div>
-        <section id="tarifas" class="container text-center">
+        <section id="tarifas" class="container text-center" style="text-align: -webkit-center;">
             <div class="elemento-grid">
                 <div class="elemento-item"
                     style="background-color: #d4af37; color: black; padding: 2rem; width: 250px; border-radius: 10px;">
@@ -542,9 +542,23 @@
                     <p class="euro">€/GR</p>
                 </div>
             </div>
-            <div class="elemento-text" style="margin-top: 15px;">
-                <h3>¡Aprovecha hoy los mejores precios por tu oro!</h3>
+
+            <div
+                style="margin-top: 15px; background-color: #000; color: #d4af37; padding: 0.5rem; font-family: Arial, sans-serif;">
+                <div
+                    style="display: flex; justify-content: space-around; flex-wrap: wrap; text-align: center; max-width: 1200px; margin: auto;">
+                    <div style="margin: 1rem;">
+                        <h3 style="letter-spacing: 1px;">COMPRO ORO UTRERA</h4>
+                            <p style="color: #fff;">Nuestro Compro Oro Utrera está ubicado en </p>
+                            <p style="color: #d4af37;">Calle Las Mujeres 1, Utrera, Sevilla</p>
+                            <p style="color: #fff;">Teléfono: <a href="tel:+34611023363"
+                                    style="color: #d4af37; text-decoration: none;">611 023 363</a></p>
+                    </div>
+                </div>
             </div>
+            <!--<div class="elemento-text" style="margin-top: 15px;">
+                <h3>¡Aprovecha hoy los mejores precios por tu oro!</h3>
+            </div>-->
             <div
                 style="display: flex; justify-content: center; align-items: center; margin-top: -15px; margin-bottom: 20px;">
                 <img src="img/woman-surprised.png" alt="Rostro mujer sorprendida"
@@ -679,10 +693,10 @@
             </div>
 
             <br />
-            <footer style="background-color: #000; color: #d4af37; padding: 2rem 1rem; font-family: Arial, sans-serif;">
+            <div style="background-color: #000; color: #d4af37; padding: 1rem; font-family: Arial, sans-serif;">
                 <div
                     style="display: flex; justify-content: space-around; flex-wrap: wrap; text-align: center; max-width: 1200px; margin: auto;">
-                    <div style="margin: 1rem;">
+                    <div style="margin: 1rem; margin-bottom: 0;">
                         <h3 style="letter-spacing: 1px;">VISÍTANOS</h3>
                         <p style="color: #fff;">Calle Las Mujeres 1</p>
                         <p style="color: #fff;">Utrera, Sevilla</p>
@@ -696,6 +710,7 @@
                                 style="color: #d4af37; text-decoration: none;">info@comprooroutrera.com</a></p>
                     </div>
                 </div>
+            </div>
         </section>
     </main>
     <a href="https://api.whatsapp.com/send?phone=+34611023363" class="whatsapp-float" target="_blank">
@@ -777,7 +792,7 @@
             autoSlideInterval = setInterval(() => {
                 currentIndex = (currentIndex + 1) % totalSlides;
                 updateSlide();
-            }, 3000);
+            }, 5000);
         }
 
         function resetAutoSlide() {
