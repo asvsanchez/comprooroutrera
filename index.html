@@ -13,6 +13,14 @@
     <link rel="stylesheet" href="css/fontawesome.css">
     <link rel="icon" href="img/gold.ico" type="image/x-icon">
     <style>
+        @font-face {
+            font-display: swap;
+            font-family: 'Aboreto';
+            font-style: normal;
+            font-weight: 100;
+            src: url('webfonts/aboreto-v2-latin-regular.woff2') format('woff2');
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -36,6 +44,10 @@
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .aboreto {
+            font-family: 'Aboreto', sans-serif;
         }
 
         .direccion {
@@ -192,6 +204,7 @@
             font-size: 2.2rem;
             text-align: left;
             padding: 0;
+            font-family: 'Aboreto', sans-serif;
         }
 
         .text-center {
@@ -440,7 +453,7 @@
             #tarifas .elemento-grid {
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-                gap: 0.8rem;
+                gap: 0.3rem;
                 max-width: 900px;
                 margin: 0 auto;
             }
@@ -502,7 +515,7 @@
             <div></div>
             <div></div>
         </div>
-        <nav id="menu">
+        <nav id="menu" class="aboreto">
             <a href="#tarifas">Tarifas</a>
             <a href="#proceso">Proceso</a>
             <a href="#nosotros">Nosotros</a>
@@ -513,7 +526,7 @@
         </nav>
     </header>
 
-    <div class="hero">
+    <div class="hero aboreto">
         <div class="direccion">
             <h2 id="title">Compro Oro Utrera</h2>
             <p>📍 Calle Las Mujeres 1, Utrera, Sevilla</p>
@@ -543,8 +556,7 @@
                 </div>
             </div>
 
-            <div
-                style="margin-top: 15px; background-color: #000; color: #d4af37; padding: 0.5rem; font-family: Arial, sans-serif;">
+            <div style="margin-top: 15px; background-color: #000; color: #d4af37; padding: 0.5rem;">
                 <div
                     style="display: flex; justify-content: space-around; flex-wrap: wrap; text-align: center; max-width: 1200px; margin: auto;">
                     <div style="margin: 1rem;">
@@ -681,7 +693,7 @@
             </div>
         </section>
 
-        <section id="contacto" class="text-center">
+        <section id="contacto" class="text-center aboreto">
             <h2>Contacto</h2>
 
             <div>
@@ -693,7 +705,7 @@
             </div>
 
             <br />
-            <div style="background-color: #000; color: #d4af37; padding: 1rem; font-family: Arial, sans-serif;">
+            <div style="background-color: #000; color: #d4af37; padding: 1rem;">
                 <div
                     style="display: flex; justify-content: space-around; flex-wrap: wrap; text-align: center; max-width: 1200px; margin: auto;">
                     <div style="margin: 1rem; margin-bottom: 0;">
