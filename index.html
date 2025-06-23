@@ -209,7 +209,7 @@
 
         .text-center {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 40px;
             align-items: center;
             gap: 2rem;
         }
@@ -220,13 +220,16 @@
             gap: 0.5rem;
             max-width: 900px;
             margin: 0 auto;
+            margin-left: 10px;
         }
 
         #tarifas .elemento-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            max-width: 900px;
-            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
         }
 
         .elemento-item {
@@ -572,7 +575,7 @@
             </div>-->
             <div
                 style="display: flex; justify-content: center; align-items: center; margin-top: -15px; margin-bottom: 20px;">
-                <img src="img/woman-surprised.png" alt="Rostro mujer sorprendida"
+                <img src="img/woman-surprised.png" alt="Compro Oro Utrera mujer sorprendida"
                     style="width: 100%; max-width: 280px; height: auto; border-radius: 8px;">
             </div>
         </section>
@@ -596,7 +599,8 @@
     </div>
 
     <main class="container">
-        <section id="nosotros" style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem;">
+        <section id="nosotros"
+            style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; margin-top: 40px;">
             <div style="flex: 1; min-width: 280px; text-align: justify;">
                 <h2>Sobre nosotros</h2>
                 <p>Somos una empresa sevillana con más de 15 años de experiencia en el sector de la compra y venta de
@@ -634,12 +638,19 @@
                 <div class="elemento-item">🧠<p>Tasación profesional sin compromiso</p>
                 </div>
             </div>
-            <img src="img/pesaje-oro.jpg" alt="Procedimiento de pesaje del oro"
+            <img src="img/pesaje-oro.jpg" alt="Procedimiento de pesaje del oro en compro oro Utrera"
                 style="width: 100%; height: auto; border-radius: 30px; padding: 20px;">
         </section>
 
         <section id="porque" class="text-center">
             <h2>¿Por qué elegirnos?</h2>
+            <p style="max-width: auto; margin-bottom: 20px; text-align: justify;">
+                En Compro Oro Utrera nos diferenciamos por ofrecer un servicio profesional, transparente y cercano.
+                Sabemos lo importante que es para ti obtener el máximo valor por tus piezas, por eso trabajamos con
+                cotizaciones actualizadas diariamente, sin comisiones ocultas ni sorpresas.
+                Nuestro equipo de tasadores expertos te asesorará en todo momento, garantizando una experiencia cómoda,
+                segura y confidencial.
+            </p>
             <div class="elemento-grid">
                 <div class="elemento-item">📊<p>Precios actualizados diariamente</p>
                 </div>
@@ -654,6 +665,10 @@
 
         <section id="proceso" class="text-center">
             <h2>Proceso</h2>
+            <p style="max-width: auto; margin-bottom: 20px; text-align: justify;">
+                En Compro Oro Utrera te ofrecemos un proceso sencillo, transparente y rápido para vender tus piezas de
+                oro o joyas. Nos aseguramos de que cada paso sea claro y cómodo para ti, sin presiones ni obligaciones.
+            </p>
             <div class="proceso-pasos">
                 <div class="paso">
                     <div class="icono">💎</div>
@@ -677,7 +692,7 @@
             </div>
         </section>
 
-        <section id="opiniones" class="opiniones">
+        <section id="opiniones" class="opiniones" style="margin-top: 40px;">
             <h2>Opiniones de nuestros clientes</h2>
             <div class="opinion">
                 <p>"Muy buen trato, me explicaron todo y me pagaron al momento. Recomendado 100%." - <strong>Laura
@@ -692,7 +707,7 @@
             </div>
         </section>
 
-        <section id="contacto" class="text-center aboreto">
+        <section id="contacto" class="text-center aboreto" style="margin-top: 40px;">
             <h2>Contacto</h2>
 
             <div>
