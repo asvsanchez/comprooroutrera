@@ -774,10 +774,14 @@
                 const text = div.textContent;
                 const matches = [...text.matchAll(/(\d+,\d+)\s*€\/g/g)];
                 if (matches.length >= 3) {
-                    const precio24k = matches[0][1].replace(',', '.');
-                    const precio18k = matches[2][1].replace(',', '.');
+                    const precio24k = (parseFloat(matches[0][1]) - 3.5).toFixed(2);
+                    const precio18k = (parseFloat(matches[2][1]) - 3.5).toFixed(2);
+
                     document.getElementById('precio24k').textContent = precio24k;
                     document.getElementById('precio18k').textContent = precio18k;
+
+                    localStorage.setItem('precio24k', precio24k);
+                    localStorage.setItem('precio18k', precio18k);
                 }
             })
             .catch(console.error);
