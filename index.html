@@ -121,7 +121,7 @@
         .slides-wrapper {
             overflow: hidden;
             position: relative;
-            margin-top: 40px;
+            margin-top: 20px;
             margin-bottom: 10px;
         }
 
@@ -212,7 +212,7 @@
 
         .text-center {
             text-align: center;
-            margin-top: 40px;
+            margin-top: 20px;
             align-items: center;
             gap: 2rem;
         }
@@ -568,10 +568,14 @@
                     <div style="margin: 1rem;">
                         <h3 style="letter-spacing: 1px; margin-bottom: 5px;">COMPRO ORO UTRERA</h3>
                         <hr style="border: 0.5px solid #d4af37; width: 50%; margin: 0.5rem auto;">
-                        <p style="color: #fff; margin-top: 5px; font-family: Arial, Helvetica, sans-serif; font-size: 16px;">Nuestro Compro Oro Utrera está ubicado en:</p>
+                        <p
+                            style="color: #fff; margin-top: 5px; font-family: Arial, Helvetica, sans-serif; font-size: 16px;">
+                            Nuestro Compro Oro Utrera está ubicado en:</p>
                         <p style="color: #d4af37; margin-top: 5px;">Calle Las Mujeres 1, Utrera, Sevilla</p>
-                        <p style="color: #fff; margin-top: 5px; font-family: Arial, Helvetica, sans-serif; font-size: 16px;">Teléfono: <a href="tel:+34611023363"
-                                style="color: #d4af37; text-decoration: none;">611 023 363</a></p>
+                        <p
+                            style="color: #fff; margin-top: 5px; font-family: Arial, Helvetica, sans-serif; font-size: 16px;">
+                            Teléfono: <a href="tel:+34611023363" style="color: #d4af37; text-decoration: none;">611 023
+                                363</a></p>
                     </div>
                 </div>
             </div>
@@ -605,7 +609,7 @@
 
     <main class="container">
         <section id="nosotros"
-            style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; margin-top: 40px;">
+            style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; margin-top: 20px;">
             <div style="flex: 1; min-width: 280px; text-align: justify;">
                 <h2>Sobre nosotros</h2>
                 <p>Somos una empresa sevillana con más de 15 años de experiencia en el sector de la compra y venta de
@@ -702,7 +706,7 @@
             </p>
         </section>
 
-        <section id="opiniones" class="opiniones" style="margin-top: 40px;">
+        <section id="opiniones" class="opiniones" style="margin-top: 20px;">
             <h2>Opiniones de nuestros clientes</h2>
             <div class="opinion">
                 <p>"Muy buen trato, me explicaron todo y me pagaron al momento. Recomendado 100%." - <strong>Laura
@@ -717,7 +721,7 @@
             </div>
         </section>
 
-        <section id="contacto" class="text-center aboreto" style="margin-top: 40px;">
+        <section id="contacto" class="text-center aboreto" style="margin-top: 20px;">
             <h2>Contacto</h2>
 
             <div>
@@ -742,8 +746,6 @@
                         <p style="color: #fff;">Teléfono: <a href="tel:+34611023363"
                                 style="color: #d4af37; text-decoration: none;">611 023 363</a></p>
                         <p style="color: #fff;">WhatsApp disponible</p>
-                        <p style="color: #fff;">Email: <a href="mailto:info@comprooroutrera.com"
-                                style="color: #d4af37; text-decoration: none;">info@comprooroutrera.com</a></p>
                     </div>
                 </div>
             </div>
@@ -765,23 +767,42 @@
         let startX = 0;
         let endX = 0;
         let autoSlideInterval;
+        const fallback24k = "90.00";
+        const fallback18k = "70.00";
+        const idPrecio24k = document.getElementById('precio24k');
+        const idPrecio18k = document.getElementById('precio18k');
+
+        let precio24kLocal = fallback24k;
+        let precio18kLocal = fallback18k;
+
+        try {
+            precio24kLocal = localStorage.getItem('precio24k') || fallback24k;
+            precio18kLocal = localStorage.getItem('precio18k') || fallback18k;
+        } catch (e) {
+            console.error("LocalStorage no disponible:", e);
+        }
+
+        idPrecio24k.textContent = precio24kLocal;
+        idPrecio18k.textContent = precio18kLocal;
+        const parseEuro = s => parseFloat(s.replace(',', '.'));
 
         fetch('https://api.allorigins.win/raw?url=https://www.joyeriachaves.es/oro/')
             .then(res => res.text())
             .then(html => {
-                const div = document.createElement('div');
-                div.innerHTML = html;
-                const text = div.textContent;
-                const matches = [...text.matchAll(/(\d+,\d+)\s*€\/g/g)];
+                const matches = [...html.matchAll(/(\d+,\d+)\s*€\/g/g)];
                 if (matches.length >= 3) {
-                    const precio24k = (parseFloat(matches[0][1]) - 3.5).toFixed(2);
-                    const precio18k = (parseFloat(matches[2][1]) - 3.5).toFixed(2);
+                    const precio24k = (parseEuro(matches[0][1]) - 3.5).toFixed(2);
+                    const precio18k = (parseEuro(matches[2][1]) - 3.5).toFixed(2);
 
-                    document.getElementById('precio24k').textContent = precio24k;
-                    document.getElementById('precio18k').textContent = precio18k;
+                    idPrecio24k.textContent = precio24k;
+                    idPrecio18k.textContent = precio18k;
 
-                    localStorage.setItem('precio24k', precio24k);
-                    localStorage.setItem('precio18k', precio18k);
+                    try {
+                        localStorage.setItem('precio24k', precio24k);
+                        localStorage.setItem('precio18k', precio18k);
+                    } catch (e) {
+                        console.error("No se pudo guardar en localStorage:", e);
+                    }
                 }
             })
             .catch(console.error);
@@ -861,11 +882,9 @@
 
         window.history.scrollRestoration = 'manual';
 
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                window.scrollTo(0, 0);
-            }, 15);
-        });
+        document.addEventListener('DOMContentLoaded', () => {
+      window.scrollTo(0, 0);
+    });
     </script>
 </body>
 
