@@ -284,7 +284,6 @@
             precio18kLocal = localStorage.getItem('precio18k') || fallback18k;
         } catch (e) {
             console.error("LocalStorage no disponible: ", e);
-            alert("LocalStorage no disponible: " + e);
         }
 
         idPrecio24k.textContent = precio24kLocal;
@@ -294,20 +293,22 @@
         fetch('https://api.allorigins.win/raw?url=https://www.joyeriachaves.es/oro/')
             .then(res => res.text())
             .then(html => {
-                const matches = [...html.matchAll(/(\d+,\d+)\s*€\/g/g)];
+                const div = document.createElement('div');
+                div.innerHTML = html;
+                const text = div.textContent;
+                const matches = [...text.matchAll(/(\d+,\d+)\s*€\/g/g)];
                 if (matches.length >= 3) {
                     const precio24k = (parseEuro(matches[0][1]) - 3.5).toFixed(2);
                     const precio18k = (parseEuro(matches[2][1]) - 3.5).toFixed(2);
 
                     idPrecio24k.textContent = precio24k;
-                    idPrecio18k.textContent = precio18k;
+                    idPrecio18k.textContent = precio18k;                     
 
                     try {
                         localStorage.setItem('precio24k', precio24k);
                         localStorage.setItem('precio18k', precio18k);
                     } catch (e) {
                         console.error("No se pudo guardar en localStorage: ", e);
-                        alert("No se pudo guardar en localStorage: " + e);
                     }
                 }
             })
