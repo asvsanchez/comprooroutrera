@@ -64,6 +64,7 @@
                     <p id="precio14k" class="precio">50.00</p>
                     <p class="euro">€/GR</p>
                 </div>
+                <p id="errores"></p>
             </div>
 
             <div style="margin-top: 15px; background-color: #000; color: #d4af37; padding: 0.5rem;">
@@ -242,8 +243,10 @@
                     style="display: flex; justify-content: space-around; flex-wrap: wrap; text-align: center; max-width: 1200px; margin: auto;">
                     <div style="margin: 1rem; margin-bottom: 0;">
                         <h3 style="letter-spacing: 1px;">VISÍTANOS</h3>
-                        <p style="color: #fff;">Calle Las Mujeres 1</p>
-                        <p style="color: #fff;">Utrera, Sevilla</p>
+                        <a href="https://www.google.com/maps/place/COMPRO+ORO+UTRERA+JAIRO/@37.1814078,-5.7830437,17z/data=!3m1!4b1!4m6!3m5!1s0xd127fd0ee4e82b7:0xa58e565c6ba81d63!8m2!3d37.1814078!4d-5.7804688!16s%2Fg%2F11k4zp1jlm?entry=ttu&g_ep=EgoyMDI1MDcxNi4wIKXMDSoASAFQAw%3D%3D"
+                            target="_blank" style="color: #fff;">
+                            Calle Las Mujeres 1<br>Utrera, Sevilla
+                        </a>
                     </div>
                     <div style="margin: 1rem;">
                         <h3 style="letter-spacing: 1px;">CONTACTO</h3>
@@ -267,28 +270,24 @@
         const slides = document.getElementById('slides');
         const totalSlides = slides.children.length;
         const dotsContainer = document.getElementById('dots');
-        let currentIndex = 0;
-        let startX = 0;
-        let endX = 0;
+        let currentIndex, startX, endX = 0;
         let autoSlideInterval;
         const fallback24k = "90.00";
         const fallback18k = "70.00";
         const idPrecio24k = document.getElementById('precio24k');
         const idPrecio18k = document.getElementById('precio18k');
-
-        let precio24kLocal = fallback24k;
-        let precio18kLocal = fallback18k;
+        let loop18k, loop24k;
 
         try {
-            precio24kLocal = localStorage.getItem('precio24k') || fallback24k;
-            precio18kLocal = localStorage.getItem('precio18k') || fallback18k;
+            idPrecio24k.textContent = localStorage.getItem('precio24k') || fallback24k;
+            idPrecio18k.textContent = localStorage.getItem('precio18k') || fallback18k;
         } catch (e) {
-            console.error("LocalStorage no disponible: ", e);
+            console.warn("LocalStorage no disponible 1: ", e);
+            document.getElementById('errores').textContent = "LocalStorage no disponible 1: " + e;
         }
 
-        idPrecio24k.textContent = precio24kLocal;
-        idPrecio18k.textContent = precio18kLocal;
-        const parseEuro = s => parseFloat(s.replace(',', '.'));
+        loop18k = startLoadingAnimation(idPrecio18k, 65, 75);
+        loop24k = startLoadingAnimation(idPrecio24k, 85, 95);
 
         fetch('https://api.allorigins.win/raw?url=https://www.joyeriachaves.es/oro/')
             .then(res => res.text())
@@ -297,22 +296,39 @@
                 div.innerHTML = html;
                 const text = div.textContent;
                 const matches = [...text.matchAll(/(\d+,\d+)\s*€\/g/g)];
-                if (matches.length >= 3) {
-                    const precio24k = (parseEuro(matches[0][1]) - 3.5).toFixed(2);
-                    const precio18k = (parseEuro(matches[2][1]) - 3.5).toFixed(2);
 
+                if (matches.length >= 3) {
+                    const precio24k = (parseFloat(matches[0][1].replace(',', '.')) - 3.5).toFixed(2);
+                    const precio18k = (parseFloat(matches[2][1].replace(',', '.')) - 3.5).toFixed(2);
+
+                    clearInterval(loop24k);
+                    clearInterval(loop18k);
+
+                    idPrecio18k.textContent = precio18k;
                     idPrecio24k.textContent = precio24k;
-                    idPrecio18k.textContent = precio18k;                     
 
                     try {
-                        localStorage.setItem('precio24k', precio24k);
                         localStorage.setItem('precio18k', precio18k);
+                        localStorage.setItem('precio24k', precio24k);
                     } catch (e) {
-                        console.error("No se pudo guardar en localStorage: ", e);
+                        console.warn("LocalStorage no disponible 2:", e);
+                        document.getElementById('errores').textContent = "LocalStorage no disponible 2: " + e;
                     }
                 }
             })
-            .catch(console.error);
+            .catch(err => {
+                console.error("Error al obtener los precios: ", err);
+                clearInterval(loop18k);
+                clearInterval(loop24k);
+                document.getElementById('errores').textContent = "Error al obtener los precios: " + err;
+            });
+
+        function startLoadingAnimation(element, min, max) {
+            return setInterval(() => {
+                const randomPrice = (Math.random() * (max - min) + min).toFixed(2);
+                element.textContent = randomPrice;
+            }, 80);
+        }
 
         slides.addEventListener('touchstart', e => {
             startX = e.touches[0].clientX;
