@@ -9,7 +9,7 @@
     <meta name="keywords"
         content="compro oro Utrera, vender oro en Utrera, tasación de oro, compra venta de oro, joyas de oro, oro usado, tienda de oro Utrera, mejor precio oro Utrera, dónde vender oro Utrera">
     <meta name="author" content="Compro Oro Utrera">
-    <title>Compro Oro en Utrera | Mejor Precio y Pago al Instante</title>
+    <title>Compro Oro Utrera | Mejor Precio y Pago al Instante</title>
     <link rel="stylesheet" href="css/fontawesome.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="img/logo-comprooroutrera.png" type="image/x-icon">
@@ -64,7 +64,6 @@
                     <p id="precio14k" class="precio">50.00</p>
                     <p class="euro">€/GR</p>
                 </div>
-                <p id="errores"></p>
             </div>
 
             <div style="margin-top: 15px; background-color: #000; color: #d4af37; padding: 0.5rem;">
@@ -76,10 +75,13 @@
                         <p
                             style="color: #fff; margin-top: 5px; font-family: Arial, Helvetica, sans-serif; font-size: 16px;">
                             Nuestro Compro Oro Utrera está ubicado en:</p>
-                        <p style="color: #d4af37; margin-top: 5px;">Calle Las Mujeres 1, Utrera, Sevilla</p>
+                        <a href="https://www.google.com/maps/place/COMPRO+ORO+UTRERA+JAIRO/@37.1814078,-5.7830437,17z/data=!3m1!4b1!4m6!3m5!1s0xd127fd0ee4e82b7:0xa58e565c6ba81d63!8m2!3d37.1814078!4d-5.7804688!16s%2Fg%2F11k4zp1jlm?entry=ttu&g_ep=EgoyMDI1MDcxNi4wIKXMDSoASAFQAw%3D%3D"
+                            target="_blank" style="text-decoration: none;">
+                            <p style="color: #d4af37; margin-top: 5px;">Calle Las Mujeres 1, Utrera, Sevilla</p>
+                        </a>
                         <p
                             style="color: #fff; margin-top: 5px; font-family: Arial, Helvetica, sans-serif; font-size: 16px;">
-                            Teléfono: <a href="tel:+34611023363" style="color: #d4af37; text-decoration: none;">611 023
+                            Teléfono: <a class="aboreto" href="tel:+34611023363" style="color: #d4af37; text-decoration: none;">611 023
                                 363</a></p>
                     </div>
                 </div>
@@ -244,7 +246,7 @@
                     <div style="margin: 1rem; margin-bottom: 0;">
                         <h3 style="letter-spacing: 1px;">VISÍTANOS</h3>
                         <a href="https://www.google.com/maps/place/COMPRO+ORO+UTRERA+JAIRO/@37.1814078,-5.7830437,17z/data=!3m1!4b1!4m6!3m5!1s0xd127fd0ee4e82b7:0xa58e565c6ba81d63!8m2!3d37.1814078!4d-5.7804688!16s%2Fg%2F11k4zp1jlm?entry=ttu&g_ep=EgoyMDI1MDcxNi4wIKXMDSoASAFQAw%3D%3D"
-                            target="_blank" style="color: #fff;">
+                            target="_blank" style="color: #fff; text-decoration: none;">
                             Calle Las Mujeres 1<br>Utrera, Sevilla
                         </a>
                     </div>
@@ -282,8 +284,7 @@
             idPrecio24k.textContent = localStorage.getItem('precio24k') || fallback24k;
             idPrecio18k.textContent = localStorage.getItem('precio18k') || fallback18k;
         } catch (e) {
-            console.warn("LocalStorage no disponible 1: ", e);
-            document.getElementById('errores').textContent = "LocalStorage no disponible 1: " + e;
+            console.error("LocalStorage no disponible 1: ", e);
         }
 
         loop18k = startLoadingAnimation(idPrecio18k, 65, 75);
@@ -311,8 +312,7 @@
                         localStorage.setItem('precio18k', precio18k);
                         localStorage.setItem('precio24k', precio24k);
                     } catch (e) {
-                        console.warn("LocalStorage no disponible 2:", e);
-                        document.getElementById('errores').textContent = "LocalStorage no disponible 2: " + e;
+                        console.error("LocalStorage no disponible 2:", e);
                     }
                 }
             })
@@ -320,7 +320,6 @@
                 console.error("Error al obtener los precios: ", err);
                 clearInterval(loop18k);
                 clearInterval(loop24k);
-                document.getElementById('errores').textContent = "Error al obtener los precios: " + err;
             });
 
         function startLoadingAnimation(element, min, max) {
