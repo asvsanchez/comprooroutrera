@@ -81,7 +81,8 @@
                         </a>
                         <p
                             style="color: #fff; margin-top: 5px; font-family: Arial, Helvetica, sans-serif; font-size: 16px;">
-                            Teléfono: <a class="aboreto" href="tel:+34611023363" style="color: #d4af37; text-decoration: none;">611 023
+                            Teléfono: <a class="aboreto" href="tel:+34611023363"
+                                style="color: #d4af37; text-decoration: none;">611 023
                                 363</a></p>
                     </div>
                 </div>
@@ -272,7 +273,7 @@
         const slides = document.getElementById('slides');
         const totalSlides = slides.children.length;
         const dotsContainer = document.getElementById('dots');
-        let currentIndex, startX, endX = 0;
+        let currentIndex = 0, startX = 0;
         let autoSlideInterval;
         const fallback24k = "90.00";
         const fallback18k = "70.00";
@@ -280,55 +281,73 @@
         const idPrecio18k = document.getElementById('precio18k');
         let loop18k, loop24k;
 
+        // Mostrar precios almacenados o fallback al instante
         try {
             idPrecio24k.textContent = localStorage.getItem('precio24k') || fallback24k;
             idPrecio18k.textContent = localStorage.getItem('precio18k') || fallback18k;
         } catch (e) {
             console.error("LocalStorage no disponible 1: ", e);
+            idPrecio24k.textContent = fallback24k;
+            idPrecio18k.textContent = fallback18k;
         }
 
+        // Animación de carga rápida
         loop18k = startLoadingAnimation(idPrecio18k, 65, 75);
         loop24k = startLoadingAnimation(idPrecio24k, 85, 95);
 
-        fetch('https://api.allorigins.win/raw?url=https://www.joyeriachaves.es/oro/')
-            .then(res => res.text())
-            .then(html => {
-                const div = document.createElement('div');
-                div.innerHTML = html;
-                const text = div.textContent;
-                const matches = [...text.matchAll(/(\d+,\d+)\s*€\/g/g)];
+        // Obtener precios reales con reintento rápido
+        fetchPreciosConReintento(2, 1000); // 2 reintentos, cada 1 segundo
 
-                if (matches.length >= 3) {
-                    const precio24k = (parseFloat(matches[0][1].replace(',', '.')) - 3.5).toFixed(2);
-                    const precio18k = (parseFloat(matches[2][1].replace(',', '.')) - 3.5).toFixed(2);
+        function fetchPreciosConReintento(reintentos = 2, delay = 1000) {
+            fetch('https://api.allorigins.win/raw?url=https://www.joyeriachaves.es/oro/')
+                .then(res => res.text())
+                .then(html => {
+                    const div = document.createElement('div');
+                    div.innerHTML = html;
+                    const text = div.textContent;
+                    const matches = [...text.matchAll(/(\d+,\d+)\s*€\/g/g)];
 
-                    clearInterval(loop24k);
-                    clearInterval(loop18k);
+                    if (matches.length >= 3) {
+                        const precio24k = (parseFloat(matches[0][1].replace(',', '.')) - 3.5).toFixed(2);
+                        const precio18k = (parseFloat(matches[2][1].replace(',', '.')) - 3.5).toFixed(2);
 
-                    idPrecio18k.textContent = precio18k;
-                    idPrecio24k.textContent = precio24k;
+                        clearInterval(loop18k);
+                        clearInterval(loop24k);
 
-                    try {
-                        localStorage.setItem('precio18k', precio18k);
-                        localStorage.setItem('precio24k', precio24k);
-                    } catch (e) {
-                        console.error("LocalStorage no disponible 2:", e);
+                        idPrecio24k.textContent = precio24k;
+                        idPrecio18k.textContent = precio18k;
+
+                        try {
+                            localStorage.setItem('precio24k', precio24k);
+                            localStorage.setItem('precio18k', precio18k);
+                        } catch (e) {
+                            console.error("LocalStorage no disponible 2: ", e);
+                        }
+                    } else {
+                        throw new Error("No se encontraron precios en el HTML.");
                     }
-                }
-            })
-            .catch(err => {
-                console.error("Error al obtener los precios: ", err);
-                clearInterval(loop18k);
-                clearInterval(loop24k);
-            });
+                })
+                .catch(err => {
+                    console.error(`Error al obtener precios: ${err.message}`);
+                    if (reintentos > 0) {
+                        console.log(`Reintentando en ${delay}ms... (${reintentos} restantes)`);
+                        setTimeout(() => fetchPreciosConReintento(reintentos - 1, delay), delay);
+                    } else {
+                        clearInterval(loop18k);
+                        clearInterval(loop24k);
+                        console.warn("Fallo definitivo al obtener precios.");
+                    }
+                });
+        }
 
         function startLoadingAnimation(element, min, max) {
             return setInterval(() => {
                 const randomPrice = (Math.random() * (max - min) + min).toFixed(2);
                 element.textContent = randomPrice;
-            }, 80);
+            }, 60); // animación más rápida
         }
 
+        // Carrusel táctil
         slides.addEventListener('touchstart', e => {
             startX = e.touches[0].clientX;
         });
@@ -369,6 +388,7 @@
             };
             dotsContainer.appendChild(btn);
         }
+
         updateSlide(0);
 
         function startAutoSlide() {
@@ -394,9 +414,7 @@
         document.addEventListener('click', function (event) {
             const menu = document.getElementById('menu');
             const burger = document.querySelector('.burger');
-            const isClickInsideMenu = menu.contains(event.target);
-            const isClickOnBurger = burger.contains(event.target);
-            if (!isClickInsideMenu && !isClickOnBurger && menu.classList.contains('active')) {
+            if (!menu.contains(event.target) && !burger.contains(event.target) && menu.classList.contains('active')) {
                 menu.classList.remove('active');
                 document.body.classList.remove('menu-open');
             }
