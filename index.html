@@ -41,28 +41,40 @@
                 <p>📍 Calle Las Mujeres 1, Utrera, Sevilla</p>
             </a>
         </div>
+
         <section id="tarifas" class="container text-center" style="text-align: -webkit-center;">
-            <div class="elemento-grid">
-                <div class="elemento-item"
-                    style="background-color: #d4af37; color: black; padding: 2rem; width: 250px; border-radius: 10px;">
-                    <h3 style="margin-bottom: 1rem; font-weight: bold;">ORO DE 24 KILATES</h3>
-                    <p class="descripcion">Pagamos hasta</p>
-                    <p id="precio24k" class="precio">...</p>
-                    <p class="euro">€/GR</p>
+            <div id="precios-container" style="position: relative;">
+                <div id="spinner-overlay">
+                    <div class="spinner-container">
+                        <p class="spinner-text">Cargando precios...</p>
+                        <div class="spinner"></div>
+                    </div>
                 </div>
-                <div class="elemento-item"
-                    style="background-color: #d4af37; color: black; padding: 2rem; width: 250px; border-radius: 10px;">
-                    <h3 style=" margin-bottom: 1rem; font-weight: bold;">ORO DE 18 KILATES</h3>
-                    <p class="descripcion">Pagamos hasta</p>
-                    <p id="precio18k" class="precio">...</p>
-                    <p class="euro">€/GR</p>
-                </div>
-                <div class="elemento-item"
-                    style="background-color: #d4af37; color: black; padding: 2rem; width: 250px; border-radius: 10px;">
-                    <h3 style="margin-bottom: 1rem; font-weight: bold;">ORO DE 14 KILATES</h3>
-                    <p class="descripcion">Pagamos hasta</p>
-                    <p id="precio14k" class="precio">50.00</p>
-                    <p class="euro">€/GR</p>
+
+                <div class="elemento-grid" id="precios-grid" style="opacity: 0;">
+                    <div class="elemento-item"
+                        style="background-color: #d4af37; color: black; padding: 2rem; width: 250px; border-radius: 10px;">
+                        <h3 style="margin-bottom: 1rem; font-weight: bold;">ORO DE 24 KILATES</h3>
+                        <p class="descripcion">Pagamos hasta</p>
+                        <p id="precio24k" class="precio">90.00</p>
+                        <p class="euro">€/GR</p>
+                    </div>
+
+                    <div class="elemento-item"
+                        style="background-color: #d4af37; color: black; padding: 2rem; width: 250px; border-radius: 10px;">
+                        <h3 style="margin-bottom: 1rem; font-weight: bold;">ORO DE 18 KILATES</h3>
+                        <p class="descripcion">Pagamos hasta</p>
+                        <p id="precio18k" class="precio">70.00</p>
+                        <p class="euro">€/GR</p>
+                    </div>
+
+                    <div class="elemento-item"
+                        style="background-color: #d4af37; color: black; padding: 2rem; width: 250px; border-radius: 10px;">
+                        <h3 style="margin-bottom: 1rem; font-weight: bold;">ORO DE 14 KILATES</h3>
+                        <p class="descripcion">Pagamos hasta</p>
+                        <p id="precio14k" class="precio">50.00</p>
+                        <p class="euro">€/GR</p>
+                    </div>
                 </div>
             </div>
 
@@ -269,7 +281,7 @@
         Compro Oro Utrera &copy; XoD Apps
     </footer>
 
-        <script src="js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

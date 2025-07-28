@@ -4,31 +4,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const dotsContainer = document.getElementById('dots');
     let currentIndex = 0, startX = 0;
     let autoSlideInterval;
-    const fallback24k = "90.00";
-    const fallback18k = "70.00";
     const idPrecio24k = document.getElementById('precio24k');
     const idPrecio18k = document.getElementById('precio18k');
-    let loop18k, loop24k;
 
-    // Mostrar precios almacenados o fallback al instante
     try {
-        idPrecio24k.textContent = localStorage.getItem('precio24k') || fallback24k;
-        idPrecio18k.textContent = localStorage.getItem('precio18k') || fallback18k;
+        idPrecio24k.textContent = localStorage.getItem('precio24k');
+        idPrecio18k.textContent = localStorage.getItem('precio18k');
     } catch (e) {
         console.error("LocalStorage no disponible 1: ", e);
-        idPrecio24k.textContent = fallback24k;
-        idPrecio18k.textContent = fallback18k;
     }
-
-    // Animación de carga rápida
-    loop18k = startLoadingAnimation(idPrecio18k, 65, 75);
-    loop24k = startLoadingAnimation(idPrecio24k, 85, 95);
 
     // Obtener precios reales con reintento rápido
     fetchPreciosConReintento();
 
     function fetchPreciosConReintento() {
-        fetch('https://api.allorigins.win/raw?url=https://www.joyeriachaves.es/oro/')
+        fetch('https://precios-compro-oro.rprnjsy57r.workers.dev/')
             .then(res => res.text())
             .then(html => {
                 const div = document.createElement('div');
@@ -40,9 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     const precio24k = (parseFloat(matches[0][1].replace(',', '.')) - 3.5).toFixed(2);
                     const precio18k = (parseFloat(matches[2][1].replace(',', '.')) - 3.5).toFixed(2);
 
-                    clearInterval(loop18k);
-                    clearInterval(loop24k);
-
                     idPrecio24k.textContent = precio24k;
                     idPrecio18k.textContent = precio18k;
 
@@ -52,21 +39,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     } catch (e) {
                         console.error("LocalStorage no disponible 2: ", e);
                     }
+                    //Se quita el spinner y mostramos precios
+                    document.getElementById('spinner-overlay').style.display = 'none';
+                    document.getElementById('precios-grid').style.opacity = '1';
                 } else {
                     throw new Error("No se encontraron precios en el HTML.");
                 }
             })
             .catch(err => {
                 console.error(`Error al obtener precios: ${err.message}`);
-                setTimeout(() => fetchPreciosConReintento(), 1000);
+                setTimeout(() => fetchPreciosConReintento(), 500);
             });
-    }
-
-    function startLoadingAnimation(element, min, max) {
-        return setInterval(() => {
-            const randomPrice = (Math.random() * (max - min) + min).toFixed(2);
-            element.textContent = randomPrice;
-        }, 60); // animación más rápida
     }
 
     // Carrusel táctil
