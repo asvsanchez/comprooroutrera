@@ -110,12 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     startAutoSlide();
 
-    function toggleMenu() {
-        const menu = document.getElementById('menu');
-        menu.classList.toggle('active');
-        document.body.classList.toggle('menu-open');
-    }
-
     document.addEventListener('click', function (event) {
         const menu = document.getElementById('menu');
         const burger = document.querySelector('.burger');
@@ -129,3 +123,9 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo(0, 0);
     });
 });
+
+function toggleMenu() {
+    const menu = document.getElementById('menu');
+    menu.classList.toggle('active');
+    document.body.classList.toggle('menu-open');
+}
