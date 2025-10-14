@@ -1,3 +1,9 @@
+:root {
+    --gold: #d4af37;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-dark: rgba(0, 0, 0, 0.2);
+}
+
 @font-face {
     font-display: swap;
     font-family: 'Aboreto';
@@ -19,6 +25,11 @@ body {
     color: #333;
 }
 
+.aboreto,
+h2:not(#title) {
+    font-family: 'Aboreto', sans-serif;
+}
+
 header {
     background: #fff;
     padding: 0.5rem;
@@ -28,11 +39,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.aboreto {
-    font-family: 'Aboreto', sans-serif;
+    box-shadow: 0 2px 5px var(--shadow-light);
 }
 
 .direccion {
@@ -83,7 +90,7 @@ nav a {
 
 nav a:hover {
     color: #fff;
-    background-color: #d4af37;
+    background-color: var(--gold);
 }
 
 nav#menu.active {
@@ -97,7 +104,7 @@ nav#menu.active {
 .slogan {
     text-align: center;
     padding: 1rem;
-    background: #d4af37;
+    background: var(--gold);
     color: #fff;
     font-size: 1.5rem;
     font-weight: bold;
@@ -128,17 +135,19 @@ nav#menu.active {
     position: relative;
 }
 
-.slide h3 {
-    font-size: 2rem;
+.slide h3,
+.slide p {
     position: relative;
     z-index: 1;
+}
+
+.slide h3 {
+    font-size: 2rem;
 }
 
 .slide p {
     font-size: 1.2rem;
     margin-top: 1rem;
-    position: relative;
-    z-index: 1;
 }
 
 .slide::before {
@@ -158,7 +167,7 @@ nav#menu.active {
 .dots button {
     font-size: 1.5rem;
     background: none;
-    border: 2px solid #d4af37;
+    border: 2px solid var(--gold);
     border-radius: 50%;
     width: 30px;
     height: 30px;
@@ -168,17 +177,14 @@ nav#menu.active {
 }
 
 .dots button.active {
-    background: #d4af37;
+    background: var(--gold);
     color: #fff;
 }
 
 .container {
-    padding: 2rem;
-    padding-top: 0;
-    padding-bottom: 0;
+    padding: 2rem 0;
     max-width: 1000px;
-    margin: auto;
-    margin-top: 1rem !important;
+    margin: 1rem auto 0 auto;
 }
 
 section {
@@ -186,20 +192,8 @@ section {
     scroll-margin-top: 80px;
 }
 
-h2:not(#title) {
-    color: #d4af37;
-    margin-bottom: 1rem;
-    font-size: 2.2rem;
-    text-align: left;
-    padding: 0;
-    font-family: 'Aboreto', sans-serif;
-}
-
 .text-center {
     text-align: center;
-    margin-top: 20px;
-    align-items: center;
-    gap: 2rem;
 }
 
 .elemento-grid {
@@ -233,10 +227,28 @@ h2:not(#title) {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.elemento-item h3 {
+    margin-bottom: 0.5rem;
+    color: black;
+    font-size: 1.4rem;
+}
+
 .elemento-item p {
     margin-top: 0.5rem;
     color: black;
     font-size: 1rem;
+}
+
+.elemento-item .descripcion {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.elemento-item .euro {
+    width: max-content;
+    margin: 0;
+    font-size: 1.4rem;
 }
 
 .elemento-item:hover {
@@ -248,7 +260,7 @@ h2:not(#title) {
 #tarifas .elemento-item {
     border: 4px solid #ffffff;
     animation: resplandor 2s infinite alternate;
-    background-color: #d4af37;
+    background-color: var(--gold);
     color: black;
     padding: 2rem;
     border-radius: 10px;
@@ -263,12 +275,6 @@ h2:not(#title) {
     100% {
         box-shadow: 0 0 25px #ffd700;
     }
-}
-
-.elemento-item h3 {
-    margin-bottom: 0.5rem;
-    color: black;
-    font-size: 1.4rem;
 }
 
 .elemento-item .precio {
@@ -299,31 +305,37 @@ h2:not(#title) {
     max-width: 46%;
 }
 
-.elemento-item .descripcion {
-    font-size: 1rem;
-    /* color: #666; */
-    line-height: 1.4;
-    margin: 0;
-}
-
 .opiniones .opinion {
     margin-bottom: 1rem;
     padding: 1rem;
     background: #f1f1f1;
-    border-left: 5px solid #d4af37;
+    border-left: 5px solid var(--gold);
 }
 
-.elemento-item .euro {
-    width: max-content;
-    margin: 0;
-    font-size: 1.4rem;
+.elemento-gold {
+    background-color: var(--gold);
+    color: black;
+    padding: 2rem;
+    width: 250px;
+    border-radius: 10px;
+}
+
+.img-local {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.long-text {
+    margin-bottom: 20px;
+    text-align: justify;
 }
 
 .btn {
     display: inline-block;
     margin-top: 1rem;
     padding: 0.75rem 1.5rem;
-    background: #d4af37;
+    background: var(--gold);
     color: white;
     text-decoration: none;
     border-radius: 4px;
@@ -344,7 +356,7 @@ h2:not(#title) {
     padding: 0.4rem 1rem;
     border-radius: 50%;
     text-decoration: none;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 5px var(--shadow-dark);
     z-index: 999;
     height: 60px;
 }
@@ -446,7 +458,7 @@ footer a:hover {
     width: 50px;
     height: 50px;
     border: 5px solid rgba(0, 0, 0, 0.2);
-    border-top: 5px solid #d4af37;
+    border-top: 5px solid var(--gold);
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
 }
@@ -456,7 +468,6 @@ footer a:hover {
         transform: rotate(360deg);
     }
 }
-
 
 @media (max-width: 768px) {
     .proceso-pasos {
@@ -479,7 +490,7 @@ footer a:hover {
         right: 10px;
         background: white;
         padding: 1rem;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 8px var(--shadow-light);
     }
 
     nav.active {
@@ -501,7 +512,6 @@ footer a:hover {
     .elemento-item h3 {
         font-size: 1rem;
         margin: -1rem 0;
-
     }
 
     .elemento-item .descripcion {
@@ -511,8 +521,8 @@ footer a:hover {
     }
 
     .elemento-item .euro {
-        margin: 0;
         font-size: 1rem;
+        margin: 0;
     }
 
     #tarifas .elemento-item {
@@ -525,23 +535,10 @@ footer a:hover {
         align-items: center;
     }
 
-    @keyframes resplandor {
-        0% {
-            box-shadow: 0 0 10px #ffd700;
-        }
-
-        100% {
-            box-shadow: 0 0 6px #ffd700;
-        }
-    }
-
-    .elemento-item .precio {
-        font-size: 2.3rem;
-        margin: 0.3rem 0;
-    }
-
+    .elemento-item .precio,
     .precio-brillante {
         font-size: 2.3rem;
+        margin: 0.3rem 0;
     }
 
     .addressBottom {
