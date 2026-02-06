@@ -27,8 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 const matches = [...text.matchAll(/(\d+,\d+)\s*€\/g/g)];
 
                 if (matches.length >= 3) {
+                    /*
                     const precio24k = (parseFloat(matches[0][1].replace(',', '.')) - 3.5).toFixed(2);
-                    const precio18k = (parseFloat(matches[2][1].replace(',', '.')) - 3.5).toFixed(2);
+                    const precio24k = (parseFloat(matches[0][1].replace(',', '.')) - 3.5).toFixed(2);
+                    */
+                    const descuento24k = Math.floor(Math.random() * 50) + 1;
+                    const descuento18k = Math.floor(Math.random() * 50) + 1;
+                    const precio24k = (parseFloat(matches[0][1].replace(',', '.')) - descuento24k).toFixed(2);
+                    const precio18k = (parseFloat(matches[2][1].replace(',', '.')) - descuento18k).toFixed(2);
 
                     idPrecio24k.textContent = precio24k;
                     idPrecio18k.textContent = precio18k;
