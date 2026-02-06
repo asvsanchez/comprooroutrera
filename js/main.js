@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const matches = [...text.matchAll(/(\d+,\d+)\s*€\/g/g)];
 
                 if (matches.length >= 3) {
-                    
-                    let haPagado = true;
+
+                    let haPagado = false;
                     
                     if (haPagado) {
                         const descuento24k = 3.5;
