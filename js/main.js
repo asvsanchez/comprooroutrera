@@ -29,13 +29,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (matches.length >= 3) {
 
                     let haPagado = false;
-                    
+                    let descuento24k = 0;
+                    let descuento18k = 0;
+
                     if (haPagado) {
-                        const descuento24k = 3.5;
-                        const descuento18k = 3.5;
+                        descuento24k = 3.5;
+                        descuento18k = 3.5;
                     } else {
-                        const descuento24k = Math.floor(Math.random() * 100) + 1;
-                        const descuento18k = Math.floor(Math.random() * 100) + 1;
+                        descuento24k = Math.floor(Math.random() * 100) + 1;
+                        descuento18k = Math.floor(Math.random() * 100) + 1;
                     }
 
                     const precio24k = (parseFloat(matches[0][1].replace(',', '.')) - descuento24k).toFixed(2);
