@@ -1,4 +1,4 @@
-const monoLoco = true;
+const monoLoco = false;
 let autoSlideInterval;
 const slides = document.getElementById('slides');
 const totalSlides = slides.children.length;
