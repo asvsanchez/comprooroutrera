@@ -477,6 +477,7 @@ footer a:hover {
 
 .premium-banner {
     width: 100%;
+    max-width: 900px;
     margin: 15px auto;
     padding: 30px 20px;
     background: linear-gradient(135deg, #1a1a1a, #000);
@@ -484,6 +485,8 @@ footer a:hover {
     border-radius: 12px;
     text-align: center;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+    display: block;
 }
 
 .premium-title {
@@ -621,8 +624,8 @@ footer a:hover {
     }
 
     .premium-banner {
-        margin: 15px;
-        padding: 25px 15px;
+        width: calc(100% - 20px);
+        margin: 15px auto;
     }
 
     .premium-title {
