@@ -475,6 +475,56 @@ footer a:hover {
     animation: spin 0.8s linear infinite;
 }
 
+.premium-banner {
+    width: 100%;
+    margin: 15px auto;
+    padding: 30px 20px;
+    background: linear-gradient(135deg, #1a1a1a, #000);
+    border: 2px solid var(--gold);
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.premium-title {
+    color: white !important;
+    font-size: 2.2rem !important;
+    font-weight: 800;
+    line-height: 1.2;
+    text-align: center !important;
+    margin: 0 !important;
+    letter-spacing: 1px;
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+.premium-divider {
+    width: 120px;
+    height: 2px;
+    background: var(--gold);
+    margin: 20px auto;
+}
+
+.premium-subtitle {
+    color: var(--gold);
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+.premium-icon {
+    margin-bottom: 15px;
+}
+
+.premium-icon img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
 @keyframes spin {
     to {
         transform: rotate(360deg);
@@ -568,5 +618,19 @@ footer a:hover {
 
     .addressBottom {
         margin-top: 1rem;
+    }
+
+    .premium-banner {
+        margin: 15px;
+        padding: 25px 15px;
+    }
+
+    .premium-title {
+        font-size: 1.7rem !important;
+    }
+
+    .premium-subtitle {
+        font-size: 1.1rem;
+        letter-spacing: 2px;
     }
 }
