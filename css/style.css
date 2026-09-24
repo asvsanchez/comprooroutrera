@@ -60,6 +60,10 @@ header {
     border-bottom: 1px solid #ddd;
 }
 
+.direccion h2 {
+    text-align: center;
+}
+
 .logo img {
     height: 54px;
     margin-bottom: -5px;
